@@ -4,14 +4,9 @@ public class Act2 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-
-		System.out.println("Dame un numero para multiplicar su factorial: ");
-		   int n=sc.nextInt();
-	for(int i = 1; i <=n; i++) {
-		n = i*n;
-		System.out.println("el factorial: "+ n);
-		}
-//1
+		
+		
+//1	
 		System.out.println("Dame tu edad: ");
 		int edad = sc.nextInt();
 		if (edad>=18) {System.out.println("Eres mayor de edad");}
@@ -95,8 +90,84 @@ public class Act2 {
        }
 		
 //8
-		   
+		   System.out.println("Dame un numero para multiplicar por su factorial: ");
+		   int n=sc.nextInt();
+		   int factorial=1;
+	for(int i = 1; i <=n; i++) {
+		factorial = factorial*i;  
+				  }
+	System.out.println("el factorial: "+ factorial);
+
+	
+//9
+	System.out.println("Dame un valor en horas: ");
+	int h = sc.nextInt();
+	System.out.println("Dame un valor en minutos:");
+	int m = sc.nextInt();
+	System.out.println("Dame un valor en segundos: ");
+	int s = sc.nextInt();
+	   if (s<0 || s>59) {
+		   System.out.println("Valor no valido");
+		   }
+	   if (m<0 || m>59) {
+		   System.out.println("Valor no valido");
+		   }
+	   if (h>24 || h<0) {
+		   System.out.println("Valor no valido");
+		   }
+
+	  s=s+1;
+	  if (s>59) {
+		  m=m+1; s=0;
+		  }
+	  if (m>59) {
+		  m=0; h++;
+		  }
+	  if (h>24) {
+		  h=0;
+		  }
+	  	
+	  System.out.println("La hora es "+h+"h "+m+"m "+s+"s");
 		
+	  //10
+	  int neg=0;
+		
+		 System.out.println("Dame dies valores: ");
+		  for (int i=1; i<=10; i++) {
+			  int val=sc.nextInt();
+			  if (val<0) {
+			  		neg++;
+			  		
+			  	}
+			  
+		  }
+		  if (neg>0) {
+	  			System.out.println("Ha leido un negativo");
+	  		}
+	  		else {
+				  System.out.println("No ha leido ningun numero negativo");
+			  }
+		  
+	//11
+		  int cneg=0;
+		  int cpos=0;
+			
+			 System.out.println("Dame dies valores: ");
+			  for (int i=1; i<=10; i++) {
+				  int val=sc.nextInt();
+				  if (val<0) {
+				  		cneg++;
+				  		
+				  	}
+				  else {
+					  cpos++; //!!!!!!CUENTO EL 0 COMO POSITIVO
+				  }
+			  }
+			  
+			  System.out.println("Ha leido "+cpos+" numeros positivos y "+cneg+" numeros negativos");
+//12
+		
+	 
 		
 //		 System.out.print("Introduce un número positivo: ");
 //	        int N = scanner.nextInt();

@@ -45,7 +45,7 @@ public class Actividad1 {
 		double volu = (4/3)*Math.PI*Math.pow(radio, 3);
 		System.out.println("El radio de la circunferencia es: " + radio + "cm" + "\nLa longitud es: " + longitud+"cm" +
 					"\nEl area es: " + areacir +"cm^2" + "\nEl volumen es: " + volu + "cm^3"+"\n");
-		
+		//
 		
 		//EJ 6
 	
