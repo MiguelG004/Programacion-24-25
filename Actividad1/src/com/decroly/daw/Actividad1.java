@@ -82,6 +82,10 @@ public class Actividad1 {
 		double numer1 = sc.nextDouble();
 		System.out.println("Dame otro numero: ");
 		double numer2 = sc.nextDouble();
+		System.out.println("Dame otro numero: ");
+		double numer3 = sc.nextDouble();
+		System.out.println("El numero mas grande es: "+ Math.max(Math.max(numer3, numer2), numer1)+"\n");
+		
 		
 		
 		
