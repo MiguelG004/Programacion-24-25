@@ -4,7 +4,7 @@ public class Act2 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		
+	
 		
 //1	
 		System.out.println("Dame tu edad: ");
@@ -166,7 +166,49 @@ public class Act2 {
 			  
 			  System.out.println("Ha leido "+cpos+" numeros positivos y "+cneg+" numeros negativos");
 //12
-		
+				System.out.println("Te voy a calcular la suma y el producto de los primeros diez numeros naturales");
+				int suma=0;
+				int mult=1;
+				for (int i=1; i<=10; i++) {
+					suma = suma+i;
+					mult = mult*i;
+				}
+				System.out.println("la suma es: "+suma);
+				System.out.println("el producto es: "+mult);
+				
+//13
+				System.out.println("Nombre del trabajador: ");
+				String nomb = sc.nextLine();
+				System.out.println("Horas trabajadas");
+				double horastr = sc.nextDouble();
+				System.out.print("Cuanto se paga por horas: ");
+				double tarifa = sc.nextDouble();
+				
+				double salariobr =1;
+				if (horastr<=35) {
+					salariobr = horastr*tarifa;
+				}
+				else {
+					salariobr=(35*tarifa)+((horastr-35)*1.5);
+				}
+				
+				double impuestos=1;
+				if(salariobr<=500) {
+				 impuestos=0;
+				}
+				else if(salariobr<=900) {
+					impuestos=(salariobr-500)*0.25;
+				}
+				else {
+		            impuestos = (400 * 0.25) + ((salariobr - 900) * 0.45);
+		        }
+				
+				double salarioneto= salariobr-impuestos;
+				
+				System.out.println("Nombre del trabajador: "+nomb);
+				System.out.println("Salario bruto: "+salariobr);
+				System.out.println("Impuestos: "+impuestos);
+				System.out.println("Salario Neto: "+salarioneto);
 	 
 		
 //		 System.out.print("Introduce un número positivo: ");

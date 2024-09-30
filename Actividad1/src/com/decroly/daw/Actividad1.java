@@ -75,8 +75,25 @@ public class Actividad1 {
 		System.out.println("El numero mas pequeño es: "+ Math.min(numero1, numero2)+"\n");
 		
 		
-
-		//Ej 9
+		//9 Escribe un programa que lee dos números y nos dice cuál es el mayor o si son iguales.
+		
+		System.out.println("Dame un numero: ");
+		double n1= sc.nextDouble();
+		System.out.println("Dame otro: ");
+		double n2= sc.nextDouble();
+	
+		if (n1>n2) {
+			System.out.println(n1+" es mayor que "+n2);
+		}
+		else if (n2>n1) {
+			System.out.println(n2+" es mayor que "+n1);
+		}
+		else {
+			System.out.println(n1+" es igual a "+n2);
+		}
+		
+		
+		//Ej 10
 		
 		System.out.println("Dame un numero: ");
 		double numer1 = sc.nextDouble();
@@ -87,7 +104,48 @@ public class Actividad1 {
 		System.out.println("El numero mas grande es: "+ Math.max(Math.max(numer3, numer2), numer1)+"\n");
 		
 		
+
+		//11
 		
+		System.out.println("Dame un numero: ");
+		double nume1 = sc.nextDouble();
+		System.out.println("Dame otro numero: ");
+		double nume2 = sc.nextDouble();
+		double sumar= nume1+nume2;
+		double res=nume1-nume2;
+		double mul=nume1*nume2;
+		double divi=nume1/nume2;
+		
+		System.out.println("La suma es: "+sumar);
+		System.out.println("La resta es: "+res);
+		System.out.println("El producto es: "+mul);
+		if (nume2==0) {
+			System.out.println("No se puede dividir entre 0");
+		}
+		else {
+			System.out.println("El cociente es: "+divi);
+
+		}
+		
+		//12
+		
+		System.out.println("Dame un numero: ");
+		double number1 = sc.nextDouble();
+		System.out.println("Dame otro numero: ");
+		double number2 = sc.nextDouble();
+		System.out.println("El numero mas grande es: "+ Math.max(numero1, numero2));
+	
+		
+		//13
+		
+		System.out.println("Dame un numero:");
+		int posneg = sc.nextInt();
+		if (posneg<=0){
+			System.out.println("El numero es positivo");
+		}
+		else {
+			System.out.println("El numero es negativo");
+		}
 		
 		
 	}
