@@ -138,7 +138,7 @@ public class Actividad1 {
 		double number1 = sc.nextDouble();
 		System.out.println("Dame otro numero: ");
 		double number2 = sc.nextDouble();
-		System.out.println("El numero mas grande es: "+ Math.max(numero1, numero2));
+		System.out.println("El numero mas grande es: "+ Math.max(number1, number2));
 	
 		
 		//13. Escribe un programa que lee un número y me dice si es positivo o negativo (consideraremos el cero como positivo.)
