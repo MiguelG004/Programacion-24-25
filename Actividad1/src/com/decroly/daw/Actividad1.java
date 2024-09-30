@@ -8,22 +8,26 @@ public class Actividad1 {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		
-		//ej 1
+		//1. Escribe un programa que dé los “buenos días”.
+		
 		System.out.println("Buenos Dias\n");  
 		
-		/// ej 2
+		//2. Escribe un programa que calcule y muestre el área de un cuadrado de lado igual a 5.
+
 		int lado = 5;
 		int area = lado*lado;
 		
 		System.out.println("el lado del cuadrado mide: "+ lado + "cm\nEl area del cuadrado es lado por lado.\n" + "Area = " + area+"cm^2\n");
 		
-		///Ej 3
+		//3. Escribe un programa que calcule el área de un cuadrado cuyo lado se introduce por teclado
+		
 		System.out.println("Dame el lado de un cuadrado en cm: ");
 		double ladoteclado = sc.nextDouble();
 		double areateclado = ladoteclado*ladoteclado;
 		System.out.println("El area del cuadrado es: " + areateclado + "cm^2" + "\n");
 		
-		//ej 4
+		//4. Escribe un programa que lea dos números, calcule y muestre el valor de sus suma, resta, producto y division
+
 		System.out.println("Dame un numero: ");
 		double num1 = sc.nextDouble();
 		System.out.println("Dame otro numero: ");
@@ -36,7 +40,9 @@ public class Actividad1 {
 		System.out.println("La suma de los dos numeros es: " + suma +"\nLa resta es: " + resta + 
 				"\nLa multiplicacion es: " + multi + "\nLa division es: " + div + "\n");
 		
-		//Ej 5
+		//5.  Escribe un programa que toma como dato de entrada un número que corresponde a la longitud 
+		//de un radio y nos escribe la longitud de la circunferencia, el área del círculo 
+		//y el volumen de la esfera que corresponden con dicho radio 
 		
 		System.out.println("Dame la longitud del radio de una circunfencia en cm: ");
 		double radio = sc.nextDouble();
@@ -45,9 +51,8 @@ public class Actividad1 {
 		double volu = (4/3)*Math.PI*Math.pow(radio, 3);
 		System.out.println("El radio de la circunferencia es: " + radio + "cm" + "\nLa longitud es: " + longitud+"cm" +
 					"\nEl area es: " + areacir +"cm^2" + "\nEl volumen es: " + volu + "cm^3"+"\n");
-		//
 		
-		//EJ 6
+		//6. Escribe un programa que dado el precio de un artículo y el precio de venta real nos muestre el porcentaje de descuento realizado.
 	
 		System.out.println("Dame el precio original");
 		double precioo = sc.nextDouble();
@@ -58,14 +63,14 @@ public class Actividad1 {
 		System.out.println("Se ha hecho un descuento del " + porcentaje + "%");
 		
 		
-		//Ej 7
+		//7. Escribe un programa que lea un valor correspondiente a una distancia en millas marinas y escriba la distancia en metros. Sabiendo que una milla marina equivale a 1.852 metros
 		
 		System.out.println("Dame una distancia en millas marinas (NOTA: 1 milla marina = 1852 metros): ");
 		double millas = sc.nextDouble();
 		double metros = millas*1852;
 		System.out.println(millas+"millas equivalen a: " +metros+ " metros");
 		
-		//Ej 8
+		//8. Escribe un programa que lee dos números y los visualiza en orden ascendente.
 		
 		System.out.println("Dame un numero: ");
 		double numero1 = sc.nextDouble();
@@ -75,7 +80,7 @@ public class Actividad1 {
 		System.out.println("El numero mas pequeño es: "+ Math.min(numero1, numero2)+"\n");
 		
 		
-		//9 Escribe un programa que lee dos números y nos dice cuál es el mayor o si son iguales.
+		//9. Escribe un programa que lee dos números y nos dice cuál es el mayor o si son iguales.
 		
 		System.out.println("Dame un numero: ");
 		double n1= sc.nextDouble();
@@ -93,7 +98,7 @@ public class Actividad1 {
 		}
 		
 		
-		//Ej 10
+		//10. Escribe un programa que lea tres números distintos y nos diga cuál es el mayor
 		
 		System.out.println("Dame un numero: ");
 		double numer1 = sc.nextDouble();
@@ -105,7 +110,7 @@ public class Actividad1 {
 		
 		
 
-		//11
+		//11. . Escribe un programa que lee dos números, calcula y muestra el valor de su suma, resta, producto y división. (Ten en cuenta la división por cero).
 		
 		System.out.println("Dame un numero: ");
 		double nume1 = sc.nextDouble();
@@ -127,7 +132,7 @@ public class Actividad1 {
 
 		}
 		
-		//12
+		//12. Escribe un programa que lee 2 números y muestra el mayor
 		
 		System.out.println("Dame un numero: ");
 		double number1 = sc.nextDouble();
@@ -136,7 +141,7 @@ public class Actividad1 {
 		System.out.println("El numero mas grande es: "+ Math.max(numero1, numero2));
 	
 		
-		//13
+		//13. Escribe un programa que lee un número y me dice si es positivo o negativo (consideraremos el cero como positivo.)
 		
 		System.out.println("Dame un numero:");
 		int posneg = sc.nextInt();
