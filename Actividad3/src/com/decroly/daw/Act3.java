@@ -14,33 +14,6 @@ public class Act3 {
 		//5 € (no será válido por ejemplo 29 billetes de 5, que aunque sume 145 € no es el mínimo
 		//número de billetes posible).
 
-		System.out.println("Introduce 1 numero para realizar una operacion");
-		double num1 = sc.nextDouble(); 
-		System.out.println("Introduce otro numero para realizar una operacion");
-		double num2 = sc.nextDouble(); 
-		System.out.println("Introduce el numero de la opcion que quieres realizar (primero el primer numero y despues el segundo)");
-		System.out.println("1. Suma\n2. Resta\n3.Multiplicar\n4.Dividir\5.Salir");
-		
-		int calculadora = 1;
-	
-		
-		switch(calculadora) {
-		
-		case 1:
-			double suma = num1+num2;
-			System.out.println("La suma de " + num1 + " y " + num2 + " es: " + suma);
-		case 2:
-			
-		case 3:
-		
-		case 4:
-			
-		case 5:
-			break;
-		}
-		
-		
-		
 		System.out.println("Introduce por teclado una cantidad de euros que sea multiplo de 5 (EJ: 5,10,15,20...)");
 		int dinero = sc.nextInt();
 			
@@ -102,6 +75,46 @@ public class Act3 {
          //5. Salir
          //El menú debe de repetirse hasta que se escoja la opción 5 (Salir).
          
+  		System.out.println("Se va a realizar una operación matematica; ");
+ 		System.out.println("Introduce 1 numero para realizar una operacion");
+ 		double num1 = sc.nextDouble(); 
+ 		System.out.println("Introduce otro numero para realizar una operacion");
+ 		double num2 = sc.nextDouble(); 
+ 		System.out.println("Introduce el numero de la opcion que quieres realizar:");
+ 		System.out.println("1. Suma\n2. Resta\n3. Multiplicar\n4. Dividir\n5. Salir");
+ 		
+ 		int calculadora = sc.nextInt();
+ 		switch(calculadora) {
+ 		
+ 		case 1:
+ 			double suma = num1+num2;
+ 			System.out.println("La suma de " + num1 + " y " + num2 + " es: " + suma);
+ 			break;
+ 		
+ 		case 2:
+ 			double resta = num1-num2;
+ 			double resta2 = num2-num1;
+ 			System.out.println("la resta de " + num1 + " y " + num2 + " es: " + resta);
+ 			System.out.println("la resta de " + num2 + " y " + num1 + " es: " + resta2);
+ 			break;
+ 			
+ 		case 3:
+ 			double multip = num1 * num2;
+ 			System.out.println("la multiplicacion de " + num1 + " y " + num2 + " es: " + multip);
+ 			break;
+ 			
+ 		case 4:
+ 			double divi = num1 / num2;
+ 			double divi2 = num2 / num1;
+ 			System.out.println("la division entre " + num1 + " y " + num2 + " es: " + divi);
+ 			System.out.println("la division entre " + num2 + " y " + num1 + " es: " + divi2);
+ 			break;
+ 			
+ 		case 5:
+ 			System.out.println("Saliendo del programa...");
+ 			break;
+ 		}
+ 		
          
          
 	}
