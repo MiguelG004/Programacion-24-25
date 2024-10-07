@@ -1,22 +1,24 @@
 package com.decroly.daw;
+
 import java.util.Arrays;
 import java.util.Scanner;
+
 public class Main {
 
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		
+
 		//1. Crea un programa que pida diez números reales por teclado, los almacene en un array, y luego muestre todos sus valores.
 
 		double reales[] = new double[10];
-		System.out.println("Dame 10 valores y te seran devueltos: ");
+		System.out.println("(Ej 1)Dame 10 valores y te seran devueltos: ");
 		for (int i = 0; i < 10; i++) {
 			reales[i] = sc.nextDouble();
 		}
 		
 		for (int i = 0; i < reales.length; i++) {
-			System.out.println(reales[i]);
+			System.out.println(reales[i] + "\n");
 		}
 		
 		
@@ -90,11 +92,71 @@ public class Main {
 		int array [];
 		System.out.println("(Ej6)\nDame un valor 'N' para definir el tamaño de una array: ");
 		int tamaño = sc.nextInt();
-		array = new int[tamaño];
-		System.out.println("Dame un valor para 'M' para definir ");
+		array = new int[tamaño];  //El tamaño de la array se hace del valor dado anteriormente
+		System.out.println("Dame un valor para 'M' para definir los valores de la array ");
 		int posicion = sc.nextInt();
-		int [tamaño] = posición;
 		
+		Arrays.fill(array, posicion);
+		for (int i = 0; i < array.length; i++) {
+			System.out.println(array[i]);
+		}
+		
+		//7. Crea un programa que pida dos valores enteros P y Q, luego cree un array que contenga
+		//todos los valores desde P hasta Q, y lo muestre por pantalla.
+		
+		int p = 0;
+		int q = 0;
+		
+		do {
+			System.out.println("El programa va a hacer un array que vaya desde P hasta Q");
+			System.out.println("Introduce el valor P");
+			p = sc.nextInt();
+			System.out.println("Introduce el valor Q");
+			q = sc.nextInt();
+			
+			if(q < p) {
+				System.out.println("Q debe ser mayor que P");
+			}
+		
+		}while(q < p);
+
+		int restapq = q - p;
+		int pq [] = new int [restapq + 1];
+		System.out.println("Array: ");
+		for (int i = 0; i < pq.length; i++) {
+			pq[i] = p+i;
+			System.out.print(pq[i] + "\n");
+		}
+		
+		
+		//8. Crea un programa que cree un array con 100 números reales aleatorios entre 0.0 y 1.0,
+		//utilizando Math.random(), y luego le pida al usuario un valor real R. Por último, mostrará
+		//cuántos valores del array son igual o superiores a R.
+		
+		System.out.println("Se va a crear una array de 100 valores");
+		double cien[] = new double [100];
+		for (int i = 0; i < cien.length; i++) {
+			cien [i] = Math.random();
+		}
+		
+		double valor = 0;
+		do {
+			System.out.println("Introduzca un valor entre 0 y 1 (Ejemplo: 0,2 o 0,54)");
+			valor = sc.nextDouble();
+			if(valor>1 || valor<0) {
+				System.out.println("El numero debe estar entre el 0 y 1");
+			}
+		}while(valor <0 && valor >1);
+		
+		int mayor = 0;
+		
+		for (int i = 0; i < cien.length; i++) {
+			if (cien[i] >= valor) {
+				mayor++;
+			}
+		}
+		
+		System.out.println("Ha leido " + mayor + " numeros mayores o iguales a " + valor);
 	}
 
 }
