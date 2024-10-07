@@ -8,7 +8,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-
+		
 		//1. Crea un programa que pida diez números reales por teclado, los almacene en un array, y luego muestre todos sus valores.
 
 		double reales[] = new double[10];
@@ -146,7 +146,7 @@ public class Main {
 			if(valor>1 || valor<0) {
 				System.out.println("El numero debe estar entre el 0 y 1");
 			}
-		}while(valor <0 && valor >1);
+		}while(valor <0 || valor >1);
 		
 		int mayor = 0;
 		
@@ -157,6 +157,45 @@ public class Main {
 		}
 		
 		System.out.println("Ha leido " + mayor + " numeros mayores o iguales a " + valor);
+		
+		//9. Crea un programa que cree un array de enteros de tamaño 100 y lo rellene con valores
+		//enteros aleatorios entre 1 y 10 (utiliza 1 + Math.random()*10). Luego pedirá un valor N
+		//y mostrará en qué posiciones del array aparece N.
+		
+		System.out.println("Se va a crear una array de 100 valores");
+		int vector1[] = new int [100];
+		for (int i = 0; i < vector1.length; i++) {
+			vector1 [i] = (int) (1+Math.random()*10);
+		}
+		
+		int valor1 = 0;
+		do {
+			System.out.println("Introduce un valor entre N 0 y 10");
+			valor1 = sc.nextInt();
+			if (valor1 < 0 || valor1 > 10) {
+				System.out.println("Debe estar comprendido N entre 0 y 10");
+			}
+		}while(valor1 < 0 || valor1 > 10);
+		
+		System.out.println("Posiciones donde aparece N: ");
+		for (int i = 0; i < vector1.length; i++) {
+			if (vector1[i] == valor1) {
+				System.out.println("Tu numero " + valor1 + " se encuentra en la posición " + i);
+				
+			}
+		}
+		
+		//10. Crea un programa para realizar cálculos relacionados con la altura (en metros) de
+		//personas. Pedirá un valor N y luego almacenará en un array N alturas introducidas por teclado. 
+		//Luego mostrará la altura media, máxima y mínima, así como cuántas personas miden por encima y por debajo de la media.
+		
+		System.out.println("Dime cuantas alturas quieres introducir (se creara una array de dicho tamaño): ");
+		int n = sc.nextInt();
+		double altura[] = new double [n];
+		for (int i = 0; i < altura.length; i++);
+			altura[i] = sc.nextDouble();
+			
+		
 	}
 
 }
