@@ -9,6 +9,34 @@ public class Main {
 		
 		Scanner sc = new Scanner(System.in);
 		
+		int menu[] = new int[10];
+		String opcion = "";
+		do {
+			System.out.println("Elige una de las siguientes opciones");
+			System.out.println("a) Mostrar valores\nb) Introducir valor\nc) Salir");
+			opcion = sc.nextLine();
+			switch (opcion) {
+			case "a":
+				System.out.println("Ver todos los clientes");
+                for(int i =0; i < menu.length; i++){
+                       System.out.println(menu[i]);
+                }
+				break;
+				
+			case "b":
+				
+				break;
+			
+			case "c":
+				System.out.println("Saliendo...");
+				break;
+				
+			default:
+				System.out.println("Introduzca una opcion correcta");
+			}
+		}while(!opcion.equals("c"));
+		
+		
 		//1. Crea un programa que pida diez números reales por teclado, los almacene en un array, y luego muestre todos sus valores.
 
 		double reales[] = new double[10];
@@ -189,13 +217,68 @@ public class Main {
 		//personas. Pedirá un valor N y luego almacenará en un array N alturas introducidas por teclado. 
 		//Luego mostrará la altura media, máxima y mínima, así como cuántas personas miden por encima y por debajo de la media.
 		
+		double medialtura = 0;
+		int nmayor = 0;
+		int nmenor = 0;
 		System.out.println("Dime cuantas alturas quieres introducir (se creara una array de dicho tamaño): ");
 		int n = sc.nextInt();
 		double altura[] = new double [n];
-		for (int i = 0; i < altura.length; i++);
+		for (int i = 0; i < altura.length; i++) {
+			System.out.print("Introduzca una altura en metros: ");
 			altura[i] = sc.nextDouble();
-			
+			medialtura = medialtura + altura[i];
+		}
+		Arrays.sort(altura); 
+		medialtura = medialtura / n;
 		
-	}
+		for (int i = 0; i < altura.length; i++) {
+			if (medialtura < altura[i]){
+				nmayor++;
+			}
+			if (medialtura > altura [i]) {
+				nmenor++;
+			}
+		}
+		
+		System.out.println("La altura media es de " + medialtura + "m");
+		System.out.println("La altura minima es de " + altura[0] + "m");
+		System.out.println("La altura maxima es de " + altura[altura.length-1] + "m");
+		System.out.println("Nº de alturas mayores a la media: " + nmayor);
+		System.out.println("Nº de alturas menores a la media: " + nmenor);
+		
+		
+		//11.Crea un programa que cree dos arrays de enteros de tamaño 100. Luego introducirá en
+		//el primer array todos los valores del 1 al 100. Por último, deberá copiar todos los valores
+		//del primer array al segundo array en orden inverso, y mostrar ambos por pantalla.
+		
+		int Vector1[] = new int[100];
+		int Vector2[] = new int[100];
+		System.out.println("Primer Array (1-100)");
+		for (int i = 0; i < Vector1.length; i++) {
+			Vector1[i] = i + 1;
+			System.out.println(Vector1[i]);
+		}
+		System.out.println("Segundo Array (100-1)");
+		for(int i = 0; i < Vector2.length; i++){
+			Vector2[i] = Vector1[Vector1.length -1 - i];
+			System.out.println(Vector2[i]);
+        }
+		
+		
+		//12. Crea un programa que cree un array de 10 enteros y luego muestre el siguiente menú
+		//con distintas opciones:
+		//	a. Mostrar valores.
+		//	b. Introducir valor.
+		//	c. Salir.
+		//La opción ‘a’ mostrará todos los valores por pantalla. La opción ‘b’ pedirá un valor V y una
+		//posición P, luego escribirá V en la posición P del array. El menú se repetirá indefinidamente hasta
+		//que el usuario elija la opción ‘c’ que terminará el programa.
+		
+		
+		
+		
+		
+		
+	}//No borrar esta linea
 
-}
+}//Ni esta
