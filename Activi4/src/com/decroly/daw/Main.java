@@ -8,34 +8,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		
-		int menu[] = new int[10];
-		String opcion = "";
-		do {
-			System.out.println("Elige una de las siguientes opciones");
-			System.out.println("a) Mostrar valores\nb) Introducir valor\nc) Salir");
-			opcion = sc.nextLine();
-			switch (opcion) {
-			case "a":
-				System.out.println("Ver todos los clientes");
-                for(int i =0; i < menu.length; i++){
-                       System.out.println(menu[i]);
-                }
-				break;
-				
-			case "b":
-				
-				break;
-			
-			case "c":
-				System.out.println("Saliendo...");
-				break;
-				
-			default:
-				System.out.println("Introduzca una opcion correcta");
-			}
-		}while(!opcion.equals("c"));
-		
+	
 		
 		//1. Crea un programa que pida diez números reales por teclado, los almacene en un array, y luego muestre todos sus valores.
 
@@ -259,7 +232,7 @@ public class Main {
 			System.out.println(Vector1[i]);
 		}
 		System.out.println("Segundo Array (100-1)");
-		for(int i = 0; i < Vector2.length; i++){
+		for(int i = 0; i < Vector1.length; i++){
 			Vector2[i] = Vector1[Vector1.length -1 - i];
 			System.out.println(Vector2[i]);
         }
@@ -274,6 +247,118 @@ public class Main {
 		//posición P, luego escribirá V en la posición P del array. El menú se repetirá indefinidamente hasta
 		//que el usuario elija la opción ‘c’ que terminará el programa.
 		
+		int menu[] = new int[10];
+		int contador = 0;
+		String opcion = "";
+		do {
+			sc = new Scanner(System.in);
+			System.out.println("Elige una de las siguientes opciones");
+			System.out.println("a) Mostrar valores\nb) Introducir valor\nc) Salir");
+			opcion = sc.nextLine();
+			switch (opcion) {
+			case "a":
+				System.out.println("Ver todos los datos");
+                for(int i =0; i < menu.length; i++){
+                       System.out.println(menu[i]);
+                }
+				break;
+				
+			case "b":
+				sc = new Scanner(System.in);
+				System.out.println("Añade un valor V para meter en la posicion de la array P (0,1...9)\nTEN ENCUENTA QUE LA PRIMERA POSICION ES 0 Y LA ULTIMA 9");
+				System.out.println("Añade el valor V (Solo puedes meter un total de 10)");
+				int V = sc.nextInt();
+				System.out.println("Añade el valor P (Posicion de la array entre 0 y 9)");
+				int P = sc.nextInt();
+				if (P < 0 || P >= menu.length) {
+					System.out.println("Dato no valido, te has pasado del recorrido de la araray\n");
+				}
+				else {
+					menu[P] = V;
+					contador++;
+					System.out.println("Valor " + V + " añadido en la posisción " + (P) + "\n");
+					if(contador > 10){
+						System.out.println("Error, no se puede poner mas de diez valores a la array");
+					}
+				}
+			
+				break;
+			
+			case "c":
+				System.out.println("Saliendo...");
+				break;
+				
+			default:
+				System.out.println("Introduzca una opcion correcta\n");
+				break;
+			}
+		
+		
+		
+		}while(!opcion.equals("c"));
+		
+		
+		
+		
+		//13. Crea un programa que permita al usuario almacenar una secuencia aritmética en un
+		//array y luego mostrarla. Una secuencia aritmética es una serie de números que
+		//comienza por un valor inicial V, y continúa con incrementos de I. Por ejemplo, con V=1
+		//e I=2, la secuencia sería 1, 3, 5, 7, 9… Con V=7 e I=10, la secuencia sería 7, 17, 27, 37… El
+		//programa solicitará al usuario V, I además de N (nº de valores a crear).
+
+
+		int secuencia[];
+		int longitud = 0;
+		int Isalto = 0;
+		int Vi = 0;
+		
+		System.out.println("Dame cuantos valores quieres que se muestren en la siguiente secuencia");
+		longitud = sc.nextInt();
+		secuencia = new int [longitud];
+		System.out.println("Dame el valor inicial de la array: ");
+		Vi = sc.nextInt();
+		System.out.println("Dame el incremento de cada valor (Ej: 3 = 3, 6, 9... 2 = 2, 4, 6...): ");
+		Isalto = sc.nextInt();
+		System.out.println("La secuencia es: ");
+		for (int i = 0; i < secuencia.length; i++) {
+			secuencia[i] = Vi + (Isalto * i);
+			System.out.println(secuencia[i]);
+		}
+		
+		
+		//14. Crea un programa que cree un array de enteros e introduzca la siguiente secuencia de
+		//valores: 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, etc. hasta introducir 10 diez veces, y luego la
+		//muestre por pantalla.
+		
+		
+		System.out.println("Este programa le va a mostrar una secuencia de valores que repite un numero N, N veces, desde 1 hasta 10");
+		int secuencia1[];
+		
+		//Calculo la longitud de la array con una variable y un ciclo for
+		int longituds = 0;
+		for (int i = 1; i <= 10; i++) {	// empiezo desde 1, ya que es el primer valor hasta 10, contandolo tambien porque es el ultimo
+			longituds = longituds + i;
+		}
+		System.out.println("La array tendra una logitud de " + longituds + " valores");
+		secuencia1 = new int [longituds];
+		
+		int valores = 2;
+		secuencia1[0] = 1;
+		int indice = 1;
+		while (indice < secuencia1.length) {
+			
+			for (int i = 0; i < valores; i++) {
+				secuencia1[indice + i] = valores;
+			}
+			
+			indice = indice + valores;
+			valores++;
+		}
+		
+		System.out.println("La secuencia es :");
+		for (int i = 0; i < secuencia1.length; i++) {
+			System.out.println(secuencia1[i]);
+		}
 		
 		
 		
