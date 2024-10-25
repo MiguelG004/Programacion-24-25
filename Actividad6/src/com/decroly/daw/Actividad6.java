@@ -8,34 +8,7 @@ public class Actividad6 {
 
 		Scanner sc = new Scanner(System.in);
 		
-		double med1, max1, min1 = 0;
-		double med2, max2, min2 = 0;
-		double med3, max3, min3 = 0;
-		double med4, max4, min4 = 0;
-		double notas[][] = new double[4][5];
-		
-		for (int i = 0; i < notas.length; i++) {
-		System.out.println("Notas del alumno" + (i+1) + ": ");
-		
-			for (int j = 0; j < notas[i].length; j++) {
-				notas[i][j] = sc.nextInt();
-			}
-		}
 	
-	
-		for (int i = 0; i < notas.length; i++) {
-		System.out.print("Alumno " + (i+1) + " | ");
-		
-			for (int j = 0; j < notas[i].length; j++) {
-				
-				System.out.print(notas[i][j] + " ");
-			}
-			System.out.println("| " + " Media = " + 0 + ", maxima = " + 0 + ", minima = " + 0);
-		}
-
-		System.out.println("");
-		
-		
 		
 //		1. Crea un programa que cree una matriz de tamaño 5x5 que almacene los números del 1 al 25
 //		y luego muestre la matriz por pantalla.
@@ -43,17 +16,17 @@ public class Actividad6 {
 		
 		
 		System.out.println("(EJ1)\nMatriz de 5x5");
-		int sum = 1;
+		int suma = 1;
 		int matriz[][] = new int [5][5];
 		
 		System.out.println("Columna:  1  2  3  4  5");
 		for (int i = 0; i < matriz.length; i++) {
 			System.out.print("Fila: "+ (i + 1) + " |");
 			for (int j = 0; j < matriz.length; j++) {
-                if(sum < 10) {
+                if(suma < 10) {
                 	System.out.print(" ");
                 }
-				matriz[i][j] = sum++;
+				matriz[i][j] = suma++;
                 System.out.print(matriz[i][j] + " ");
 			}
 			
@@ -135,7 +108,45 @@ public class Actividad6 {
 //		programa mostrará la nota mínima, máxima y media de cada alumno.
 		
 		
-	
+		sc = new Scanner(System.in);        
+        double notas[][]= new double[4][5];
+        double minima = 0, maxima = 0, sum = 0;
+        System.out.println("(Ej4)\nDame 5 notas para 4 alumnos");
+        for (int i = 0; i < notas.length; i++) {
+        for (int j = 0; j < notas[0].length; j++) {
+        System.out.print("Para el alumno " + (i+1) + " dime su nota " + (j+1) + ": ");
+        notas[i][j] = sc.nextDouble();
+            }
+        }
+     
+        System.out.println("");
+
+        for (int i = 0; i < notas.length; i++) {
+        System.out.print("Alumno " + (i+1) + " | ");
+       
+        for (int j = 0; j < notas[0].length; j++) {
+                 System.out.print(notas[i][j] + " ");
+                 sum += notas[i][j];
+                 if (j == 0) {
+                     minima = notas[i][j];
+                     maxima = notas[i][j];
+                 }
+                 if(minima > notas[i][j]){
+                     minima = notas[i][j];
+                 }
+                 if(maxima < notas[i][j]){
+                     maxima = notas[i][j];
+                 }
+             }
+                 
+        	System.out.print(" | ");
+        	System.out.println(" La nota mínima del alumno " + (i+1) + " es: " + minima + ", la nota máxima es: " + maxima +
+        						", la nota media es: " + (sum/5));
+        	sum=0;
+        	System.out.print("");
+        }
+        System.out.println("\n");
+        
 		
 //		5. Necesitamos crear un programa para registrar sueldos de hombres y mujeres de una empresa
 //		y detectar si existe brecha salarial entre ambos. El programa pedirá por teclado la información
@@ -144,6 +155,59 @@ public class Actividad6 {
 //		matriz. Luego se mostrará por pantalla el sueldo medio de cada género.
 //		
 	
+        System.out.println("(Ej5)\nTe voy a pedir que me des el numero de personas que trabajan en una empresa, su genero y su salario, luego se mostrara el salario medio de cada genero");
+        System.out.print("Dime el número de personas ");
+            int n = sc.nextInt();
+            int numhombres = 0, nummujeres = 0, sumahombres = 0, sumamujeres = 0;
+
+            int sueldos[][] = new int[n][2];
+           
+            System.out.println("A continuación señalame el genero; 0 para hombre, 1 para mujer");
+            for (int i = 0; i < sueldos.length; i++) {
+                for (int j = 0; j < sueldos.length; j++) {
+                    if (j == 0) {
+                        System.out.print("¿La persona " + (i + 1) + " es hombre o mujer? (0 hombre, 1 mujer): ");
+                        sueldos[i][j] = sc.nextInt();
+                    }
+                    if (j == 1) {
+                        System.out.print("Dame el sueldo de esta persona: ");
+                        sueldos[i][j] = sc.nextInt();
+                    }
+                }
+            }
+
+            for (int i = 0; i < sueldos.length; i++) {
+                for (int j = 0; j < sueldos[0].length; j++) {
+                    System.out.print(sueldos[i][j] + "");
+                    if(sueldos[i][j] == 0) {
+                    System.out.print(" Hombre ");
+                    }
+                    if(sueldos[i][j] == 1) {
+                    System.out.print(" Mujer  ");
+                    }
+                    if(sueldos[i][j] < 2) {
+                    System.out.print("");
+                    }
+                    else {
+                    System.out.print("€ ");
+                    }
+                }
+                System.out.println("");
+            }
+
+            for (int i = 0; i < sueldos.length; i++) {
+                if (sueldos[i][0] == 0.0) {
+                    numhombres++;
+                    sumahombres += sueldos[i][1];
+                }
+                if (sueldos[i][0] == 1.0) {
+                    nummujeres++;
+                    sumamujeres += sueldos[i][1];
+                }
+            }
+            System.out.println("El salario medio de los hombre es: " + (sumahombres / numhombres) + "€");
+            System.out.println("El salario medio de las mujeres es: " + (sumamujeres / nummujeres) + "€");
+        
 	}
 
 }
