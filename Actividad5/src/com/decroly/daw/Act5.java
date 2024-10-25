@@ -7,37 +7,6 @@ public class Act5 {
 	
 		Scanner sc = new Scanner(System.in);
 		
-		
-		String palindromo ="";
-		System.out.println("Introduce una frase, y se te devolvera del revés y te dirá si es o no un palindromo (sin importar mayusculas ni espacios)");
-		palindromo = sc.nextLine();
-		palindromo = palindromo.replace(" ", "");
-		palindromo = palindromo.toLowerCase();
-		char palindromooriginal[] = palindromo.toCharArray();
-		char pal[] = palindromo.toCharArray();
-		
-		System.out.println("Frase original = " + palindromo);
-		System.out.print("Frase del revés = ");
-		
-		
-		for(int i = 0; i < pal.length; i++) {
-			System.out.print(pal[pal.length - 1- i]);
-			
-			if(pal[i] == palindromooriginal[i]) {
-				System.out.println("Es palindromo");
-			}
-			else {
-				System.out.println("No es palindromo");
-			}
-		}
-		System.out.println("");
-		
-		
-		
-		System.out.println("\n");
-		
-		
-		
 		//1. Crea un programa que pida una cadena de texto por teclado y luego muestre cada
 		//palabra de la cadena en una línea distinta.
 
@@ -143,6 +112,25 @@ public class Act5 {
 		//Supondremos que el usuario solo introducirá letras y espacios (ni comas, ni puntos, ni
 		//acentos, etc.). Un palíndromo es un texto que se lee igual de izquierda a derecha que de
 		//derecha a izquierda.
+		
+		String palindromo ="";
+		System.out.println("Introduce una frase, y te dirá si es o no un palindromo (sin importar mayusculas ni espacios)");
+		palindromo = sc.nextLine().toLowerCase().replace(" ", "");
+	    
+	    
+	     String reverso = "";
+	        
+	        for (int i = palindromo.length()- 1; i >=0; --i) {
+	              reverso = reverso + palindromo.charAt(i);
+	          }
+	    
+	        if (palindromo.equals(reverso)) {
+	          System.out.println(palindromo + " es palindromo");
+	        }
+	        else {
+	          System.out.println(palindromo + " no es palindromo");
+	        }
+		
 		
 		
 		
