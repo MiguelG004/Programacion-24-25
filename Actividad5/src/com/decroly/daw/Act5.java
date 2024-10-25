@@ -120,16 +120,16 @@ public class Act5 {
 	    
 	     String reverso = "";
 	        
-	        for (int i = palindromo.length()- 1; i >=0; --i) {
+	     for (int i = palindromo.length()- 1; i >=0; --i) {
 	              reverso = reverso + palindromo.charAt(i);
-	          }
+	     }
 	    
-	        if (palindromo.equals(reverso)) {
-	          System.out.println(palindromo + " es palindromo");
-	        }
-	        else {
-	          System.out.println(palindromo + " no es palindromo");
-	        }
+	     if (palindromo.equals(reverso)) {
+	         System.out.println(palindromo + " es palindromo");
+	     }
+	     else {
+	    	 System.out.println(palindromo + " no es palindromo");
+	     }
 		
 		
 		
