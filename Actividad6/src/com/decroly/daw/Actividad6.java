@@ -128,14 +128,14 @@ public class Actividad6 {
                  System.out.print(notas[i][j] + " ");
                  sum += notas[i][j];
                  if (j == 0) {
-                     minima = notas[i][j];
-                     maxima = notas[i][j];
+                     minima = notas[i][j];	//establece como primera posicion el minimo, por si no se introduce ninguna nota mas, esa será el minimo
+                     maxima = notas[i][j]; //lo mismo con el maximo, para que por lo menos la primera sea maximo
                  }
                  if(minima > notas[i][j]){
-                     minima = notas[i][j];
+                     minima = notas[i][j]; //si la posicion de las notas en ese momento, es menor que la minima anterior establecida, se establece ese valor como minimo
                  }
                  if(maxima < notas[i][j]){
-                     maxima = notas[i][j];
+                     maxima = notas[i][j]; //lo mismo pero con el maximo, si el valor es mas grande, se actualiza el maximo
                  }
              }
                  
@@ -165,12 +165,12 @@ public class Actividad6 {
             System.out.println("A continuación señalame el genero; 0 para hombre, 1 para mujer");
             for (int i = 0; i < sueldos.length; i++) {
                 for (int j = 0; j < sueldos.length; j++) {
-                    if (j == 0) {
+                    if (j == 0) { //para la posicion 0 de "j", guarda en el array el genero
                         System.out.print("¿La persona " + (i + 1) + " es hombre o mujer? (0 hombre, 1 mujer): ");
                         sueldos[i][j] = sc.nextInt();
                     }
-                    if (j == 1) {
-                        System.out.print("Dame el sueldo de esta persona: ");
+                    if (j == 1) { //para la posicion 1 de "j" guarda el salario
+                        System.out.print("Dame el salario de esta persona: ");
                         sueldos[i][j] = sc.nextInt();
                     }
                 }
@@ -179,10 +179,10 @@ public class Actividad6 {
             for (int i = 0; i < sueldos.length; i++) {
                 for (int j = 0; j < sueldos[0].length; j++) {
                     System.out.print(sueldos[i][j] + "");
-                    if(sueldos[i][j] == 0) {
+                    if(sueldos[i][j] == 0) { //si el valor de la columna es 0, imprime que es un hombre
                     System.out.print(" Hombre ");
                     }
-                    if(sueldos[i][j] == 1) {
+                    if(sueldos[i][j] == 1) { //lo mismo pero con mujer
                     System.out.print(" Mujer  ");
                     }
                     if(sueldos[i][j] < 2) {
@@ -196,9 +196,9 @@ public class Actividad6 {
             }
 
             for (int i = 0; i < sueldos.length; i++) {
-                if (sueldos[i][0] == 0.0) {
-                    numhombres++;
-                    sumahombres += sueldos[i][1];
+                if (sueldos[i][0] == 0.0) { //si la segunda posicion de la fila es cero:
+                    numhombres++;			//suma 1 el contador de los hombres totales para saber la media
+                    sumahombres += sueldos[i][1];	//guarda la posicion del sueldo y los va sumando si son hombres
                 }
                 if (sueldos[i][0] == 1.0) {
                     nummujeres++;
