@@ -10,7 +10,7 @@ public class DawBank {
 		do {
 			sc = new Scanner(System.in);
 			System.out.println("Elige una opción:");
-			System.out.println("1: Datos de la cuenta\n2: IBAN\n3: Titular\4: Saldo\n5: Ingreso\n6: Retirada\n7: Movimientos\n8: Salir");
+			System.out.println("1: Datos de la cuenta\n2: IBAN\n3: Titular\n4: Saldo\n5: Ingreso\n6: Retirada\n7: Movimientos\n8: Salir");
 			opcion = sc.nextLine();
 			
 			switch(opcion) {
