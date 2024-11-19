@@ -1,5 +1,7 @@
 package com.decroly.daw;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 public class DawBank {
 
 	public static void main(String[] args) {
@@ -19,6 +21,7 @@ public class DawBank {
 				break;
 			
 			case "2":
+				
 				break;
 			
 			case "3":
@@ -50,5 +53,29 @@ public class DawBank {
 		}while(!opcion.equals("8"));
 		
 	}
+
+	
+	public String comprobarIban() {
+		
+		Scanner sc = new Scanner(System.in);
+        Pattern pat = Pattern.compile("[A-Z a-z][0-9]{7,8}");
+        System.out.print("Introduce un IBAN correcto: ");
+        iban = sc.nextLine();
+        Matcher mat = pat.matcher(iban);
+
+       while(!mat.matches()){
+
+           System.out.println("El IBAN introducido es incorrecto, por favor "
+                   + "introduzca un IBAN válido.");
+           System.out.print("Introduce un IBAN correcto:");
+           iban = sc.nextLine();
+           mat = pat.matcher(iban);
+
+       }
+
+        System.out.println("Bien, el IBAN " + iban + " es un IBAN válido");
+
+    }
+
 
 }

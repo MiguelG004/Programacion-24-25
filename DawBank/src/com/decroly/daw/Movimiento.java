@@ -24,6 +24,7 @@ public class Movimiento {
 		
 		//obtener datos
 		public int getId() {
+			contador++;
 			return this.id;
 		}
 			
@@ -40,10 +41,10 @@ public class Movimiento {
 			
 		}
 		
-		public String infoMovimiento() {
-			String info = String.format("Tipo de movimiento: %s, Cantidad: %s, Fecha: %s, ID: %s", 
+		public String MostrarInfoMovimiento() {
+			String infomov = String.format("Tipo de movimiento: %s, Cantidad: %s, Fecha: %s, ID: %s", 
 					this.tipo, this.cantidad, this.fecha, this.id);
-			return info;
+			return infomov;
 		}
 		
 	}
