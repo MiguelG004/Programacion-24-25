@@ -20,6 +20,11 @@ public class CuentaBancaria {
 			this.movimientos = new Movimiento[100];
 		}
 		
+		//constructor vacio
+		public CuentaBancaria() {
+
+		}
+		
 		//getters y setters
 		public String getIban() {
 			return this.iban;
@@ -37,11 +42,18 @@ public class CuentaBancaria {
 			return this.movimientos;
 		}
 		
-		public String infoCuenta() {
-			String infocuenta = String.format
+		public String mostrarInfoCuenta() {
+			String infocuenta = String.format("Datos de la cuenta:\nIban: %s\nTitular: %s\nSaldo: %s", this.iban, this.titular, this.saldo);
+			return infocuenta;
 		}
 		
+	
 		
+		public void generarMovimiento(String tipo, double cantidad) {
+			
+			
+			
+		}
 	
 
 		
