@@ -41,7 +41,7 @@ public class Movimiento {
 			
 		}
 		
-		public String MostrarInfoMovimiento() {
+		public String mostrarInfoMovimiento() {
 			String infomov = String.format("Tipo de movimiento: %s, Cantidad: %s, Fecha: %s, ID: %s", 
 					this.tipo, this.cantidad, this.fecha, this.id);
 			return infomov;

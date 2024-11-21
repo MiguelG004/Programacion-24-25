@@ -15,7 +15,7 @@ public class DawBank {
 	
 
 		//creo el metodo constructor del menú
-	public static void menu() {
+	public void menu() {
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -23,8 +23,8 @@ public class DawBank {
 		String iban = sc.nextLine();
 		System.out.print("Introduzca el titular: "); 
 		String titular = sc.nextLine();
-		Double saldo = 0.0;
-		CuentaBancaria cb = new CuentaBancaria(iban, titular, saldo);
+		double saldo = 0.0;
+		CuentaBancaria cb = new CuentaBancaria(iban, titular);
 		String opcion = "";		
 		do {
 			sc = new Scanner(System.in);
@@ -48,32 +48,20 @@ public class DawBank {
 			
 			case "4":
 				System.out.println(cb.getSaldo());
+				
+
 				break;
 			
 			case "5":
 				sc = new Scanner(System.in);
 				String tipo ="ingreso";
-				Double cantidad = 0.0;
-				
-				if(tipo == "ingreso") {
-					System.out.println("Tipo de movimiento: Ingreso");
-					do {
-						 sc = new Scanner(System.in);
-						System.out.println("Introduzca que cantidad quieres ingresar");
-						cantidad = sc.nextDouble();
-						if(cantidad < 0) {
-							saldo = saldo + cantidad;
-						}
-						else {
-							System.out.println("No puedes ingresar una cantidad negativa o nada");
-						}
-					
-					}while(cantidad > 0);
-					
-				}
+				double cantidad = 0.0;
+				cantidad = sc.nextDouble();
+				cb.ingresar(cantidad);
+				System.out.println(cb.ingresar(cantidad));
 				
 				
-				System.out.println(cb.movimiento(tipo, saldo));
+				
 				break;
 			
 			case "6":

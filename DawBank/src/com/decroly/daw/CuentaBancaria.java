@@ -13,7 +13,7 @@ public class CuentaBancaria {
 		
 		//constructor
 		
-		public CuentaBancaria(String iban, String titular, double saldo) {
+		public CuentaBancaria(String iban, String titular) {
 			this.iban = iban;
 			this.titular = titular;
 			this.saldo = 0;
@@ -48,8 +48,32 @@ public class CuentaBancaria {
 		}
 		
 	
+		public void ingresar(double cantidad) {
+			String tipo ="ingreso";
+
+			
+			if(tipo == "ingreso") {
+				System.out.println("Tipo de movimiento: Ingreso");
+				do {
+					System.out.println("Introduzca que cantidad quieres ingresar");
+					cantidad = cantidad;
+					if(cantidad > 0) {
+						this.saldo = this.saldo + cantidad;
+					}
+					else {
+						System.out.println("No puedes ingresar una cantidad negativa o nada");
+					}
+				
+				}while(cantidad < 0);
+				
+			}	
+		}
 		
-		public void generarMovimiento(String tipo, double cantidad) {
+		public void Retirar(double cantidad) {
+			
+		}
+		
+		public void infoMovimiento(String tipo, double cantidad) {
 			
 			
 			
