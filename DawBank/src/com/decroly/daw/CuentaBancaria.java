@@ -50,27 +50,19 @@ public class CuentaBancaria {
 	
 		public void ingresar(double cantidad) {
 			String tipo ="ingreso";
-
-			
 			if(tipo == "ingreso") {
 				System.out.println("Tipo de movimiento: Ingreso");
-				do {
-					System.out.println("Introduzca que cantidad quieres ingresar");
-					cantidad = cantidad;
-					if(cantidad > 0) {
-						this.saldo = this.saldo + cantidad;
-					}
-					else {
-						System.out.println("No puedes ingresar una cantidad negativa o nada");
-					}
-				
-				}while(cantidad < 0);
-				
+				this.saldo = this.saldo + cantidad;		
 			}	
 		}
 		
-		public void Retirar(double cantidad) {
-			
+		public void retirar(double cantidad) {
+		
+			String tipo ="retirada";
+			if(tipo == "retirada") {
+				System.out.println("Tipo de movimiento: Retirada");
+				this.saldo = this.saldo - cantidad;		
+			}	
 		}
 		
 		public void infoMovimiento(String tipo, double cantidad) {

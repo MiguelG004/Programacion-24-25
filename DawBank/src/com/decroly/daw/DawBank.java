@@ -15,7 +15,7 @@ public class DawBank {
 	
 
 		//creo el metodo constructor del menú
-	public void menu() {
+	public static void menu() {
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -54,11 +54,23 @@ public class DawBank {
 			
 			case "5":
 				sc = new Scanner(System.in);
-				String tipo ="ingreso";
+				String tipo = "ingreso";
 				double cantidad = 0.0;
-				cantidad = sc.nextDouble();
+				do {
+					System.out.println("Introduzca que cantidad quieres ingresar");
+					cantidad = sc.nextDouble();
+					if(cantidad > 0) {
+						System.out.println("Se ha ingresado correctamente " + cantidad + "€");
+					}
+					else {
+						System.out.println("No puedes ingresar una cantidad negativa o nada");
+					}
+				
+				}while(cantidad < 0);	
+				
 				cb.ingresar(cantidad);
-				System.out.println(cb.ingresar(cantidad));
+			
+				
 				
 				
 				
@@ -67,23 +79,22 @@ public class DawBank {
 			case "6":
 				
 				sc = new Scanner(System.in);
-				tipo ="retirada";
+				tipo = "ingreso";
 				cantidad = 0.0;
-				if(tipo == "retirada") {
-					System.out.println("Tipo de movimiento: Ingreso");
-					do {
-						sc = new Scanner(System.in);
-						System.out.println("Introduzca que cantidad quieres ingresar");
-						cantidad = sc.nextDouble();
-						if(cantidad < 0) {
-							saldo = saldo - cantidad;
-							}
-						else {
-							System.out.println("No puedes retirar una cantidad negativa");
-						}
-						
-					}while(cantidad < 0);				
-				}
+				do {
+					System.out.println("Introduzca que cantidad quieres ingresar");
+					cantidad = sc.nextDouble();
+					if(cantidad > 0) {
+						System.out.println("Se ha retirado correctamente " + cantidad + "€");
+					}
+					else {
+						System.out.println("No puedes ingresar una cantidad negativa o nada");
+					}
+				
+				}while(cantidad < 0);	
+				
+				cb.retirar(cantidad);
+				
 				break;
 			
 			case "7":
