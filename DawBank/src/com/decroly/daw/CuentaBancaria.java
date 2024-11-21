@@ -10,6 +10,7 @@ public class CuentaBancaria {
 		private String titular;
 		private double saldo;
 		private Movimiento[] movimientos;
+		private int contador;
 		
 		//constructor
 		
@@ -18,6 +19,7 @@ public class CuentaBancaria {
 			this.titular = titular;
 			this.saldo = 0;
 			this.movimientos = new Movimiento[100];
+			this.contador = 0;
 		}
 		
 		//constructor vacio
@@ -47,29 +49,52 @@ public class CuentaBancaria {
 			return infocuenta;
 		}
 		
-	
+		 public void registrarMovimiento(String tipo, double cantidad){
+		 
+			 if (contador >= 100) {
+		            System.out.println("No se pueden realizar más movimientos.");
+		        } else {
+		            // Crear un nuevo movimiento y agregarlo al arreglo de movimientos
+		        	movimientos[contador] = new Movimiento(tipo, cantidad);
+		            contador++;
+		            }
+		     }
+		 
 		public void ingresar(double cantidad) {
 			String tipo ="ingreso";
-			if(tipo == "ingreso") {
-				System.out.println("Tipo de movimiento: Ingreso");
-				this.saldo = this.saldo + cantidad;		
-			}	
+			
+			System.out.println("Tipo de movimiento: Ingreso");
+			this.saldo = this.saldo + cantidad;	
+			registrarMovimiento("Ingreso", cantidad);
+				
 		}
 		
 		public void retirar(double cantidad) {
-		
 			String tipo ="retirada";
-			if(tipo == "retirada") {
-				System.out.println("Tipo de movimiento: Retirada");
-				this.saldo = this.saldo - cantidad;		
-			}	
+			if (cantidad <= 0) {
+	            System.out.println("La cantidad a retirar debe ser mayor que cero.");
+	        } 
+			else if (cantidad > this.saldo) {
+	            System.out.println("No tienes suficiente saldo para realizar esta retirada.");
+	        } 
+	        else {
+	        	System.out.println("Tipo de movimiento: Retirada");
+	        	this.saldo = this.saldo - cantidad;		
+	        	registrarMovimiento("Retirada", cantidad);
+	        }
+			
 		}
 		
-		public void infoMovimiento(String tipo, double cantidad) {
-			
-			
-			
-		}
+		
+
+		    public void mostrarMovimiento(){
+		        if(contador==0){
+		            System.out.println("No existen movimientos.");
+		        }
+		        for (int i = 0; i < contador; i++) {
+		            movimientos[i].mostrarInfoMovimiento();
+		        }
+		    }
 	
 
 		

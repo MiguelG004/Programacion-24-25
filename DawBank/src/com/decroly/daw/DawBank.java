@@ -7,25 +7,35 @@ public class DawBank {
 
 	public static void main(String[] args) {
 
-		Scanner sc = new Scanner(System.in);
-		
+	
+		System.out.println("Crea tu cuenta de DawBank");
+
+		//se inicializa el metodo de menu
 		menu();
 		
 	}
 	
 
-		//creo el metodo constructor del menú
+	//creo el metodo del menú
 	public static void menu() {
 		
 		Scanner sc = new Scanner(System.in);
+		String iban ="";
 		
-		System.out.print("Introduzca el IBAN: ");
-		String iban = sc.nextLine();
+		do {
+			//Utilizar ES7921000813610123456789 para comprobar que funciona
+			System.out.print("Introduzca el IBAN: ");
+			iban = sc.nextLine();
+			if(!validarIban(iban)){
+				System.out.println("Iban no valido, por favor, introduce un correcto");
+			}
+		}while(!validarIban(iban));
+		
 		System.out.print("Introduzca el titular: "); 
 		String titular = sc.nextLine();
-		double saldo = 0.0;
 		CuentaBancaria cb = new CuentaBancaria(iban, titular);
 		String opcion = "";		
+		
 		do {
 			sc = new Scanner(System.in);
 			System.out.println("Elige una opción:");
@@ -47,9 +57,7 @@ public class DawBank {
 				break;
 			
 			case "4":
-				System.out.println(cb.getSaldo());
-				
-
+				System.out.println(cb.getSaldo() + "€");
 				break;
 			
 			case "5":
@@ -70,10 +78,6 @@ public class DawBank {
 				
 				cb.ingresar(cantidad);
 			
-				
-				
-				
-				
 				break;
 			
 			case "6":
@@ -98,6 +102,7 @@ public class DawBank {
 				break;
 			
 			case "7":
+				cb.mostrarMovimiento();
 				break;
 			
 			case "8":
@@ -116,27 +121,9 @@ public class DawBank {
 	}
 
 	
-	public String comprobarIban() {
-		
-		Scanner sc = new Scanner(System.in);
-        Pattern pat = Pattern.compile("[A-Z a-z][0-9]{7,8}");
-        System.out.print("Introduce un IBAN correcto: ");
-        String iban = sc.nextLine();
-        Matcher mat = pat.matcher(iban);
-
-       while(!mat.matches()){
-
-           System.out.println("El IBAN introducido es incorrecto, por favor "
-                   + "introduzca un IBAN válido.");
-           System.out.print("Introduce un IBAN correcto:");
-           iban = sc.nextLine();
-           mat = pat.matcher(iban);
-
-       }
-
-        System.out.println("Bien, el IBAN " + iban + " es un IBAN válido");
-
-        return iban;
+	private static boolean validarIban(String iban){
+        
+		return iban.matches("[A-Z]{2}[0-9]{2}[A-Z0-9]{20}");
     }
 
 

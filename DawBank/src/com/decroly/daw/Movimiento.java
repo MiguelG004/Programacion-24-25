@@ -10,7 +10,7 @@ public class Movimiento {
 		private int id;
 		private String fecha;
 		private String tipo;
-		private int cantidad;
+		private double cantidad;
 		
 		//constructores
 		public Movimiento(int id, String fecha, String tipo, int cantidad){
@@ -36,7 +36,7 @@ public class Movimiento {
 			return this.tipo;
 		}
 		
-		public int getCantidad() {
+		public double getCantidad() {
 			return cantidad;
 			
 		}
