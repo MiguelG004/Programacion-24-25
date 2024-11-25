@@ -1,5 +1,7 @@
 package com.decroly.daw;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 
 public class Movimiento {
 
@@ -12,13 +14,16 @@ public class Movimiento {
 		private String tipo;
 		private double cantidad;
 		
+	    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:SS");
+
+		
 		//constructores
-		public Movimiento(int id, String fecha, String tipo, int cantidad){
+		public Movimiento(String tipo, double cantidad){
 			this.id = this.contador;
 			this.contador++;
-			this.fecha = fecha = LocalDateTime.now().toString();
+			this.fecha = fecha = LocalDateTime.now().format(formatter);
 			this.tipo = tipo;
-			this.cantidad = 0;
+			this.cantidad = cantidad;
 		}
 		
 		
@@ -41,6 +46,7 @@ public class Movimiento {
 			
 		}
 		
+		 //Metodo para realizar interpolacion en los strings en java
 		public String mostrarInfoMovimiento() {
 			String infomov = String.format("Tipo de movimiento: %s, Cantidad: %s, Fecha: %s, ID: %s", 
 					this.tipo, this.cantidad, this.fecha, this.id);
