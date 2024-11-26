@@ -47,9 +47,9 @@ public class VideoDaw {
 
 
 	
-	public String mostrarInfoCliente(){
-		String infoVideoDaw = String.format("CIF: %s, Direccion: %s, Numero de socio: %s, Direccion: %s, Fecha de nacimiento: %s, Fecha de baja: %s", 
-				this.cif, this.direccion, this.fechaAlta);
+	public String mostrarInfoVideoClub(){
+		String infoVideoDaw = String.format("CIF: %s, Direccion: %s, Fecha de alta: %s, Peliculas registradas: %s, Clientes registrados: %s", 
+				this.cif, this.direccion, this.fechaAlta, this.peliculasRegistradas, this.clientesRegistrados);
 		return infoVideoDaw;
 	}
 }

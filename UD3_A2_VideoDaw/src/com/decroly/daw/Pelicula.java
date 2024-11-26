@@ -9,7 +9,7 @@ public class Pelicula {
 	private static int contador = 0;
 	private int cod;
 	private String titulo;
-	private String genero;
+	private Genero genero;
 	private String fechaRegistro;
 	private String fechaBaja;
 	private String fechaAlquiler;
@@ -25,7 +25,7 @@ public class Pelicula {
 		this.fechaRegistro = fechaRegistro = LocalDate.now().toString();
 		this.fechaBaja = fechaBaja = LocalDate.now().toString();
 		this.fechaAlquiler = fechaAlquiler = LocalDateTime.now().format(formatter);
-
+		this.isAlquilada = isAlquilada;
 	}
 	
 	
@@ -35,7 +35,7 @@ public class Pelicula {
 	public String getTitulo() {
 		return this.titulo;
 	}
-	public String getGenero() {
+	public Genero getGenero() {
 		return this.genero;
 	}
 	public String getFechaRegistro() {
