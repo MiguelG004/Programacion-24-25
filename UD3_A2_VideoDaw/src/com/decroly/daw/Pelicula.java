@@ -18,9 +18,10 @@ public class Pelicula {
 
 	
 	//constructores
-	public Pelicula(){
+	public Pelicula(String titulo, Genero genero){
 		this.cod = this.contador;
 		this.contador++;
+		this.titulo = titulo;
 		this.genero = genero;
 		this.fechaRegistro = fechaRegistro = LocalDate.now().toString();
 		this.fechaBaja = fechaBaja = LocalDate.now().toString();

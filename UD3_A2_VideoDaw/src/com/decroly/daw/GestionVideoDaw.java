@@ -13,6 +13,11 @@ public class GestionVideoDaw {
 	public static void menu() {
 		
 		String opcion ="";
+		String cif= "", titulo = "", genero = "";
+		String direccion = "";
+		VideoDaw vd = new VideoDaw(cif, direccion);
+		Pelicula pel = new Pelicula(titulo, genero);
+		Cliente cli = new Cliente();
 		
 		do {
 			
@@ -21,11 +26,22 @@ public class GestionVideoDaw {
 			System.out.println("1.Crear y registrar videoclub\n2.Registrar pelicula en el videoclub\n"
 					+ "3. Crear y registrar cliente\n4.Alquilar película\n5.Devolver pelicula\nDar de baja cliente"
 					+ "\n7.Dar de baja pelicula\n8.Salir");
-			
+			 sc = new Scanner(System.in);
 			opcion = sc.nextLine();
 			switch(opcion){
 			
 			case "1":
+				boolean isCreada = false;
+				
+					System.out.println("Creemos tu videoclub: ");
+					cif = sc.nextLine();
+					direccion = sc.nextLine();
+					vd = new VideoDaw(cif, direccion);
+					isCreada = true;
+				
+				if(isCreada = true) {
+					vd.crearCuenta();
+				}
 				break;
 				
 			case "2":

@@ -1,17 +1,27 @@
 package com.decroly.daw;
 
+import java.time.LocalDate;
+
 public class VideoDaw {
 
-	private int cif;
+	private String cif;
 	private String direccion;
 	private String fechaAlta;
 	Pelicula[] peliculasRegistradas;
 	Cliente[] clientesRegistrados;
 	
 	
+	public VideoDaw(String cif, String direccion) {
+		this.cif = cif;
+		this.direccion = direccion;
+		this.fechaAlta = fechaAlta = LocalDate.now().toString();
+		this.peliculasRegistradas = new Pelicula[100];
+		this.clientesRegistrados = new Cliente [100];
+	}
 	
 	
-	public int getCif() {
+	
+	public String getCif() {
 		return cif;
 	}
 
@@ -43,13 +53,22 @@ public class VideoDaw {
 		return clientesRegistrados;
 	}
 
-
-
-
-	
 	public String mostrarInfoVideoClub(){
 		String infoVideoDaw = String.format("CIF: %s, Direccion: %s, Fecha de alta: %s, Peliculas registradas: %s, Clientes registrados: %s", 
 				this.cif, this.direccion, this.fechaAlta, this.peliculasRegistradas, this.clientesRegistrados);
 		return infoVideoDaw;
 	}
+	
+	public void crearCuenta() {
+		boolean isCreada = false;
+		if(isCreada == false) {
+			
+			isCreada = true;
+		}
+		if(isCreada == true) {
+			mostrarInfoVideoClub();
+		}
+	}
+	
+	
 }

@@ -23,6 +23,7 @@ public class Cliente {
 		this.fechaNacimiento = fechaNacimiento = LocalDate.now().toString();
 		this.fechaBaja = fechaBaja = LocalDate.now().toString();
 		this.peliculas = new Pelicula[50];
+		this.contador = 0;
 	}
 	
 	public String getDni() {
@@ -55,6 +56,23 @@ public class Cliente {
 		String infocliente = String.format("DNI: %s, Nombre: %s, Numero de socio: %s, Direccion: %s, Fecha de nacimiento: %s, Fecha de baja: %s", 
 				this.dni, this.nombre, this.numSocio, this.direccion, this.fechaNacimiento, this.fechaNacimiento, this.fechaBaja);
 		return infocliente;
+	}
+	
+	
+	public void registrarPelicula(String titulo, Genero genero) {
+		peliculas[contador] = new Pelicula(titulo, genero); // Crea un nuevo movimiento y lo agrega al array de movimientos
+        contador++;
+	}
+	
+	public void mostrarPeliculasAlquiladas(){
+		if(contador==0){
+            System.out.println("No se han realizado movimientos.");
+        }
+        for (int i = 0; i < contador; i++) {
+
+            System.out.println(peliculas[i].mostrarInfoPelicula()); //imprime los movimiento con el metodo de la clase movimiento: mostrarInfoMovimiento
+        }
+
 	}
 	
 
