@@ -17,6 +17,9 @@ public class Pelicula {
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:SS");
 
 	
+    public Pelicula() {
+    	
+    }
 	//constructores
 	public Pelicula(String titulo, Genero genero){
 		this.cod = this.contador;
@@ -59,8 +62,36 @@ public class Pelicula {
 		return infopeli;
 	}
 	
-	
-	
-	
+	public void elegirGenero() { 
+		do {
+			switch (genero) {
+			case DRAMA:
+				Genero genero = Genero.DRAMA;
+				genero = Genero.DRAMA;
+				break;
+			case SCIFI:
+				break;
+			case MUSICAL: 
+				break;
+			case AVENTURA:
+				break;
+			case ACCION: 
+				break;
+			case COMEDIA:
+				break;
+			case DOCUMENTAL:
+				break;
+			case FANTASIA:
+				break;
+			case ANIMADO:
+				break;
+			case CRIMINAL:
+				break;
+			default:
+				System.out.println("Por favor, introduzca alguno de los generos que se le ofrecen");
+				break;
+			}
+		}while(genero.equals(genero));
+	}
 
 }

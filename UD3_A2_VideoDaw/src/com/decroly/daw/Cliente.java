@@ -13,7 +13,8 @@ public class Cliente {
 	private String fechaNacimiento;
 	private String fechaBaja;
 	private Pelicula[] peliculas;
-	private int contador;
+
+    private static int contador = 0;
 	
 	public Cliente(){
 		this.dni = dni;
@@ -68,12 +69,12 @@ public class Cliente {
 		if(contador==0){
             System.out.println("No se han realizado movimientos.");
         }
-        for (int i = 0; i < contador; i++) {
-
-            System.out.println(peliculas[i].mostrarInfoPelicula()); //imprime los movimiento con el metodo de la clase movimiento: mostrarInfoMovimiento
-        }
-
-	}
+		else {
+			for (int i = 0; i < contador; i++) {
+				System.out.println(peliculas[i].mostrarInfoPelicula()); //imprime los movimiento con el metodo de la clase movimiento: mostrarInfoMovimiento
+				}
+			}
+		}
 	
 
 }

@@ -9,6 +9,7 @@ public class VideoDaw {
 	private String fechaAlta;
 	Pelicula[] peliculasRegistradas;
 	Cliente[] clientesRegistrados;
+	private int peliculasTotales = 0, clientesTotales = 0;
 	
 	
 	public VideoDaw(String cif, String direccion) {
@@ -33,7 +34,7 @@ public class VideoDaw {
 	}
 
 
-
+       
 
 	public String getFechaAlta() {
 		return fechaAlta;
@@ -59,16 +60,32 @@ public class VideoDaw {
 		return infoVideoDaw;
 	}
 	
-	public void crearCuenta() {
-		boolean isCreada = false;
-		if(isCreada == false) {
-			
-			isCreada = true;
-		}
-		if(isCreada == true) {
-			mostrarInfoVideoClub();
-		}
+
+	public void mostrarPeliculasRegistradas() {
+		
 	}
+	
+	public void mostrarClientesRegistrados() {
+		
+	}
+	
+	
+	public void alquilarPelicula() {
+		
+	}
+	
+	public void devolverPelicula() {
+		
+	}
+	
+	public void registrarCliente() {
+		
+	}
+	
+	public void darBajaCliente() {
+		
+	}
+	
 	
 	
 }

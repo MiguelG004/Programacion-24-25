@@ -13,10 +13,12 @@ public class GestionVideoDaw {
 	public static void menu() {
 		
 		String opcion ="";
-		String cif= "", titulo = "", genero = "";
+		String cif= "";
+	
+		
 		String direccion = "";
 		VideoDaw vd = new VideoDaw(cif, direccion);
-		Pelicula pel = new Pelicula(titulo, genero);
+		Pelicula pel = new Pelicula();
 		Cliente cli = new Cliente();
 		
 		do {
@@ -39,18 +41,25 @@ public class GestionVideoDaw {
 					vd = new VideoDaw(cif, direccion);
 					isCreada = true;
 				
-				if(isCreada = true) {
-					vd.crearCuenta();
-				}
+				
 				break;
 				
 			case "2":
+				String titulo = "";
+				String genero ="";
+                System.out.println("Introduce el titulo de la pelicula a registrar: ");
+                titulo = sc.nextLine();
+                System.out.println("Elige el genero de la pelicula");
+                pel.elegirGenero();
+                genero = sc.nextLine();
+                Pelicula peli = new Pelicula(titulo, genero);
 				break;
 				
 			case "3":
 				break;
 				
 			case "4":
+				cli.mostrarPeliculasAlquiladas();
 				break;
 				
 			case "5":
