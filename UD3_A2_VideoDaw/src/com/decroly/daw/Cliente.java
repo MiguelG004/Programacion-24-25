@@ -1,11 +1,10 @@
 package com.decroly.daw;
 
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Cliente {
-	
-	
 	private String dni;
 	private String nombre;
 	private int numSocio;
@@ -14,9 +13,11 @@ public class Cliente {
 	private String fechaBaja;
 	private Pelicula[] peliculas;
 
+	private int palquiladas;
+    private int ptotales;
     private static int contador = 0;
 	
-	public Cliente(){
+	public Cliente(String dni, String nombre, String direccion){
 		this.dni = dni;
 		this.nombre = nombre;
 		this.numSocio = numSocio;
@@ -60,21 +61,32 @@ public class Cliente {
 	}
 	
 	
-	public void registrarPelicula(String titulo, Genero genero) {
-		peliculas[contador] = new Pelicula(titulo, genero); // Crea un nuevo movimiento y lo agrega al array de movimientos
-        contador++;
-	}
-	
-	public void mostrarPeliculasAlquiladas(){
-		if(contador==0){
-            System.out.println("No se han realizado movimientos.");
+	public String mostrarPeliculas(){ 
+        String peliculasAlquiladas = "";
+        for(int i = 0; i < ptotales; i++){
+           peliculasAlquiladas = peliculasAlquiladas + peliculas[i].mostrarInfoPelicula();
+           }
+       return peliculasAlquiladas;
+    }
+
+
+    public boolean addPelicula(Pelicula p){
+        boolean isAdd = false;
+        if (p != null){
+            this.peliculas[ptotales] = p;
+            palquiladas++;
+            ptotales++;
         }
-		else {
-			for (int i = 0; i < contador; i++) {
-				System.out.println(peliculas[i].mostrarInfoPelicula()); //imprime los movimiento con el metodo de la clase movimiento: mostrarInfoMovimiento
-				}
-			}
-		}
-	
+        return isAdd;
+    }
+
+    public boolean eliminarPelicula(Pelicula p){
+        boolean isEliminated = false;
+        if (p != null){
+            palquiladas--;
+        }
+        return isEliminated;
+    }
+
 
 }

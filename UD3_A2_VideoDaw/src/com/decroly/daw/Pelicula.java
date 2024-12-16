@@ -1,11 +1,10 @@
 package com.decroly.daw;
-
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Pelicula {
-	
 	private static int contador = 0;
 	private int cod;
 	private String titulo;
@@ -26,8 +25,8 @@ public class Pelicula {
 		this.contador++;
 		this.titulo = titulo;
 		this.genero = genero;
-		this.fechaRegistro = fechaRegistro = LocalDate.now().toString();
-		this.fechaBaja = fechaBaja = LocalDate.now().toString();
+		this.fechaRegistro = fechaRegistro = LocalDateTime.now().format(formatter);
+		this.fechaBaja = fechaBaja = LocalDateTime.now().format(formatter);
 		this.fechaAlquiler = fechaAlquiler = LocalDateTime.now().format(formatter);
 		this.isAlquilada = isAlquilada;
 	}
@@ -57,41 +56,21 @@ public class Pelicula {
 	
 	
 	public String mostrarInfoPelicula(){
-		String infopeli = String.format("Titulo: %s, Genero: %s, Fecha de registro: %s, Fecha de baja: %s, Fecha de alquiler: %s, Â¿Alquilada?: %s, Cod: %s", 
-				this.titulo, this.genero, this.fechaRegistro, this.fechaBaja, this.fechaAlquiler, this.isAlquilada);
+		String infopeli = String.format("Titulo: %s, Genero: %s, Fecha de registro: %s, Fecha de baja: %s, Fecha de alquiler: %s, ¿Alquilada?: %s, Cod: %s", 
+				this.titulo, this.genero, this.fechaRegistro, this.fechaBaja, this.fechaAlquiler, this.isAlquilada, this.cod);
 		return infopeli;
 	}
 	
-	public void elegirGenero() { 
-		do {
-			switch (genero) {
-			case DRAMA:
-				Genero genero = Genero.DRAMA;
-				genero = Genero.DRAMA;
-				break;
-			case SCIFI:
-				break;
-			case MUSICAL: 
-				break;
-			case AVENTURA:
-				break;
-			case ACCION: 
-				break;
-			case COMEDIA:
-				break;
-			case DOCUMENTAL:
-				break;
-			case FANTASIA:
-				break;
-			case ANIMADO:
-				break;
-			case CRIMINAL:
-				break;
-			default:
-				System.out.println("Por favor, introduzca alguno de los generos que se le ofrecen");
-				break;
-			}
-		}while(genero.equals(genero));
+	public boolean alquilarPelicula(){ 
+	       this.isAlquilada = true;
+	       this.fechaAlquiler = LocalDateTime.now().format(formatter);
+	       return isAlquilada;
 	}
 
+	 public boolean devolverPelicula(){
+	       this.isAlquilada = false;
+	       fechaBaja = LocalDateTime.now().format(formatter);
+	       return isAlquilada;
+	    }
+	
 }
