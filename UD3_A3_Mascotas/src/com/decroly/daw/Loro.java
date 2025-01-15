@@ -14,7 +14,7 @@ public class Loro extends Aves{
         this.habla = false;
         this.nombre = nombre;
         this.edad = edad;
-        this.fechaNacimiento = LocalDate.now().toString();
+        this.fechaNacimiento = LocalDate.now();
         this.estado = estado;   
     }
 

@@ -14,7 +14,7 @@ public class Canario extends Aves{
         this.vuela = false;
         this.nombre = nombre;
         this.edad = edad;
-        this.fechaNacimiento = LocalDate.now().toString();
+        this.fechaNacimiento = LocalDate.now();
         this.estado = estado;   
     }
 
