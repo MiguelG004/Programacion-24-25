@@ -29,8 +29,8 @@ public class Agenda {
 		boolean encontrado = false;
         for (int i = 0; i < contactos.length && !encontrado; i++) {
             if (contactos[i] != null && contactos[i].getNombre().equals(nombre)) {
-                contactos[i] = null; //Controlo nulos
-                encontrado = true; //Indico que lo he encontrado
+                contactos[i] = null; 
+                encontrado = true; 
                 return encontrado;
             }
         }
@@ -48,7 +48,7 @@ public class Agenda {
 	boolean existeContacto(String nombre) {
 		boolean existe = false;
 		for (int i = 0; i < contactos.length; i++) {
-            //indico si el contacto es el mismo
+            
             if (contactos[i] != null && nombre.equals(contactos[i].getNombre())) {
                 existe = true;
             	return existe;
@@ -56,7 +56,7 @@ public class Agenda {
         }
 		return existe;
 	}
-	
+
 	void listarContactos() {
 		if (numContacto == 0) {
             System.out.println("No hay contactos en la agenda.");
@@ -64,7 +64,10 @@ public class Agenda {
         }
 		else {
 			for(int i = 0; i <= contactos.length - 1; i++) {
-				System.out.println(contactos[i]);
+				if(contactos[i] != null) {
+					System.out.print((i+1) + " ");
+					System.out.println(contactos[i]);
+				}
 			}
 		}
 	}
@@ -72,7 +75,7 @@ public class Agenda {
 	int buscaContacto(String nombre) {
 		for (int i = 0; i < numContacto; i++) {
             if (contactos[i] != null && contactos[i].getNombre().equals(nombre)) {
-                return i; // Devolver el índice del contacto
+                return i;
             }
         }
         return -1;
