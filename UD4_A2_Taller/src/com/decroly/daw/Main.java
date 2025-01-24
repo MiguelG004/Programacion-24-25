@@ -1,6 +1,5 @@
 package com.decroly.daw;
 import java.util.Scanner;
-import java.util.LinkedList;
 public class Main {
 
 	public static void main(String[] args) {
@@ -9,8 +8,7 @@ public class Main {
 		Taller taller = new Taller();
 	    Scanner sc = new Scanner(System.in);
 	    String op = "";
-	    String matricula = "";
-	    Coche coche = new Coche("sda","dads");
+	    String matricula = "asdsadsa";
 
 	    do {
 	    	sc = new Scanner(System.in);
@@ -23,10 +21,22 @@ public class Main {
 
 	        switch (op) {
 	        	case "1":
-	        		taller.añadeElemento(matricula, coche );
+	        		System.out.println("Vamos a añadir un coche");
+	        		System.out.println("Introduce su matricula, por favor: ");
+	        		matricula = sc.nextLine();
+	        		System.out.println("A continuación, introduce los datos del coche");
+	        		System.out.println("Introduzca la marca del coche: ");
+	        		String marca = sc.nextLine();
+	        		System.out.println("Introduzca el color del coche: ");
+	        		String color = sc.nextLine();
+	        		Coche coche = new Coche(color, marca);
+	        		taller.añadeElemento(matricula, coche);
 	        		break;
 	        	
 	        	case "2":
+	        		System.out.println("Elimina un coche por su matricula");
+	        		System.out.println("Escribe la matricula del coche que quieras eliminar: ");
+	        		matricula = sc.nextLine();
 	        		taller.eliminarElemento(matricula);
 	        		break;
 	        	
@@ -43,7 +53,7 @@ public class Main {
 	        		System.out.println("Opción no válida. Intenta otra opcion.");
 	        		break;
 	        }
-	          
+	        
 	        } while(!op.equals("3"));
 	}
 

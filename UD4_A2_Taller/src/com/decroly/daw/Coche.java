@@ -29,7 +29,7 @@ public class Coche {
 	
 	@Override
 	public String toString() {
-		return "Coche [color=" + color + ", marca=" + marca + "]";
+		return "Coche --> [marca = " + marca + ", color = " + color + "]";
 	}
 	
 	
