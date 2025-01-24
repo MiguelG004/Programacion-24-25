@@ -37,10 +37,10 @@ public class Producto implements Comparable<Producto> {
 		return "Producto [nombre=" + nombre + ", cantidad=" + cantidad + "]";
 	}
 	
-	  @Override
-	  public int compareTo(Producto p) {
-	      return Integer.compare(this.cantidad, p.getCantidad());
-	  }
+	 @Override
+	 public int compareTo(Producto p) {
+	     return Integer.compare(this.cantidad, p.getCantidad());
+	 }
 	
 	
 	
