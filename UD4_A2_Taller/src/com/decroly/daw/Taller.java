@@ -1,5 +1,7 @@
 package com.decroly.daw;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.HashMap; 
 public class Taller {
 
@@ -19,18 +21,42 @@ public class Taller {
 	}
 	
 	public boolean eliminarElemento(String matricula) {
-		if (taller.containsKey(matricula)) {
-            taller.remove(matricula);
-            return true;
-        }
-        return false;
+		boolean eliminar = false;
+		for(String coche : taller.keySet()) {
+			if(coche.equals(matricula)) {
+				taller.remove(matricula);
+				eliminar = true;
+			}
+		}
+		return eliminar;
 	}
+	
+	public boolean validarMatricula(String matricula){
+	        boolean existe = false;
+	        for(String coche : taller.keySet()){
+	            if(coche.equals(matricula)){
+	                existe = true;
+	            }
+	        }
+	        return existe;
+	    }
+	
+    public boolean comprobarMatricula(String matricula){
+        boolean correcto = false;
+        Pattern patron = Pattern.compile("[0-9]{4}[A-Z]{3}");
+        Matcher matcher = patron.matcher(matricula);
+        if(matcher.matches()){
+            correcto = true;
+        }
+        return correcto;
+    }
 	
 	public void visualizaMatricula() {
 		if (taller.isEmpty()) {
         } else {
+        	System.out.println("Matrículas --> ");
             for (String matricula : taller.keySet()) {
-                System.out.println("Matrícula: " + matricula);
+                System.out.println("              " + matricula);
             }
         }
 		
@@ -49,8 +75,9 @@ public class Taller {
 		
 		if (taller.isEmpty()) {
         } else {
+        	System.out.println("TALLER --> ");
             for (Map.Entry<String, Coche> entry : taller.entrySet()) {
-                System.out.println("TALLER ==> Matrícula: " + entry.getKey() + ", Coche: " + entry.getValue());
+                System.out.println("           Matrícula: " + entry.getKey() + ", Coche: " + entry.getValue());
             }
         }
 		
