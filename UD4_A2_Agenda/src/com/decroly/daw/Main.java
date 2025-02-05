@@ -27,23 +27,73 @@ public class Main {
 			switch(op) {
 			
 			case "1":
+				sc = new Scanner(System.in);
+				System.out.println("Vamos a añadir un contacto");
+        		System.out.println("Introduce su nombre, por favor: ");
+        		String nombre = "";
+        		do {
+                    nombre = sc.nextLine();
+                    if(agenda.comprobarContacto(nombre)) {
+                    	System.out.println("Error, se ha encontrado un contacto con un nombre identico");
+                    	System.out.println("Introduce otro nombre nuevamente: ");
+                    }
+                } while (agenda.comprobarContacto(nombre));
+                    
+        		System.out.println("*********************************************");
+        		System.out.println("A continuación, introduce el telefono: ");
+        		
+        		String telefono = "";
+        		do {
+                    telefono = sc.nextLine().toUpperCase();
+                    if(!agenda.validarTelefono(telefono)) {
+                    	System.out.println("Error, formate de telefono incorrecto");
+                    	System.out.println("Intente que empiece por 6, 7 o 9 (ej: 612345672): ");
+                    }
+                } while (!agenda.validarTelefono(telefono));
+        		
+        		System.out.println("A continuación, introduce el correo: ");
+        		String correo = "";
+        		do {
+                    correo = sc.nextLine().toUpperCase();
+                    if(!agenda.validarCorreo(correo)) {
+                    	System.out.println("Error, formato de correo incorrecto");
+                    	System.out.println("Ejemplo: correo@gmail.com ");
+                    }
+                } while (!agenda.validarCorreo(correo));
+        		
+        		Contacto contacto = new Contacto(nombre, telefono, correo);
+        		agenda.añadeContacto(nombre, telefono, correo);
 				break;
 				
 			case "2":
+				sc = new Scanner(System.in);
+				System.out.println("Intoduce el nombre del contacto que quieras buscar: ");
+				nombre = sc.nextLine();
+				if(agenda.buscaContacto(nombre)){
+                    System.out.println(agenda.buscaContacto(nombre) + " ha sido encontrado");
+                }else{
+                    System.out.println("El contacto no existe en tu agenda");
+                }
 				break;
 				
 			case "3":
+				sc = new Scanner(System.in);
+				System.out.println("Introduce el nombre del contacto que quieras eliminar");
+				nombre = sc.nextLine();
+				agenda.eliminaContacto(nombre);
+				System.out.println("El contacto fue eliminado");
 				break;
 				
 			case "4":
+				System.out.println(agenda.visualizaAgenda());
 				break;
 				
 			case "5": 
+				System.out.println("Su agenda tiene un total de: " + agenda.getContador() + " contactos");
 				break;
 				
-			default:
-				System.out.println("Vaya, algo ha salido mal");
-				System.out.println("Por favor, vuelva a elegir otra opción");
+			case "6":
+				System.out.println("Saliendo...");
 				break;
 			}
 			
