@@ -75,5 +75,14 @@ public class Producto {
         return eliminado;
 	}
 	
+
+	 public static String stringToFile(LinkedList<Producto> productos){
+	        String listado ="";
+	        for(Producto p : productos){
+	            listado += p.getCodigo() + "," + p.getNombre() + "," + p.getCantidad() + "," + p.getPrecio();
+	        }
+	        return listado;
+	    }
+	
 	
 }

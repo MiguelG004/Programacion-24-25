@@ -1,6 +1,5 @@
 package decroly;
 import java.util.Scanner;
-import java.util.LinkedList;
 import java.util.InputMismatchException;
 import java.io.*;
 public class Main {
@@ -13,6 +12,23 @@ public class Main {
 		String op = "";
 
 		Producto pr = new Producto();
+
+		try(FileReader ficheroProductos = new FileReader("./resources/listado.csv");
+	            BufferedReader lector = new BufferedReader(ficheroProductos);){
+	            String linea = lector.readLine();
+	            while(linea != null){
+	                String[] datos = linea.split(",");
+	                pr = new Producto(datos[0],datos[1],Integer.parseInt(datos[2]), Double.parseDouble(datos[3]));
+	                pr.añadeProducto(op, 0, 0);
+	                linea = lector.readLine();
+	            }
+	        }catch(IOException e){
+	            System.out.println("Error al leer el fichero de productos");
+	            System.out.println(e.getMessage());
+	        }catch(IndexOutOfBoundsException e){
+	            System.out.println("El formato de los datos no está bien guardado");
+	        }
+		
 		
 		do {
 			sc = new Scanner(System.in);
@@ -31,25 +47,27 @@ public class Main {
 				System.out.println("Vamos a crear un producto: ");
 				System.out.println("Introduce el nombre del producto");
 				String nombre = sc.nextLine();
+				
 				int cantidad = 0;
 			    boolean cantidadValida = false;
 			    while (!cantidadValida) {
 			        try {
 			            System.out.println("A continuación, introduce la cantidad de productos");
 			            cantidad = sc.nextInt();
-			            cantidadValida = true; // Si la cantidad es válida, salimos del bucle
+			            cantidadValida = true; // Si la cantidad es válida, termina el bucle
 			        } catch (InputMismatchException e) {
 			            System.out.println("Error: Debes introducir un número entero para la cantidad.");
 			            sc.nextLine();
 			        }
 			    }
+			    
 			    double precio = 0.0;
 			    boolean precioValido = false;
 			    while (!precioValido) {
 			        try {
 			            System.out.println("Introduce ahora el precio");
 			            precio = sc.nextDouble();
-			            precioValido = true; // Si el precio es válido, salimos del bucle
+			            precioValido = true;
 			        } catch (InputMismatchException e) {
 			            System.out.println("Error: Debes introducir un dato válido para el precio.");
 			            sc.nextLine();
@@ -80,6 +98,17 @@ public class Main {
 				break;
 				
 			case "4":
+				
+				 System.out.println("Opción de guardado de listado");
+                 try(FileWriter ficheroProductos = new FileWriter("./resources/listado.csv",false);
+                     BufferedWriter escritor = new BufferedWriter(ficheroProductos)){
+                     escritor.write(stringToFile(pr));
+                     escritor.newLine();
+                 }catch(IOException e){
+                     System.out.println("Error al escribir el fichero de productos");
+                     e.getMessage();
+                 }
+				
 				break;
 				
 			case "5":
