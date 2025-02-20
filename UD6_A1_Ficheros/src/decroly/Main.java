@@ -1,14 +1,16 @@
 package decroly;
 import java.util.Scanner;
 import java.util.InputMismatchException;
+import java.util.LinkedList;
 import java.io.*;
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Scanner sc = new Scanner(System.in);
 		
+		Scanner sc = new Scanner(System.in);
+		LinkedList<Producto> lista = new LinkedList<>();
 		String op = "";
 
 		Producto pr = new Producto();
@@ -18,8 +20,8 @@ public class Main {
 	            String linea = lector.readLine();
 	            while(linea != null){
 	                String[] datos = linea.split(",");
-	                pr = new Producto(datos[0],datos[1],Integer.parseInt(datos[2]), Double.parseDouble(datos[3]));
-	                pr.añadeProducto(op, 0, 0);
+	                //pr = new Producto(datos[0],datos[1],Integer.parseInt(datos[2]), Double.parseDouble(datos[3]));
+	                lista.add(pr);
 	                linea = lector.readLine();
 	            }
 	        }catch(IOException e){
@@ -75,7 +77,7 @@ public class Main {
 			    }
 				
 				pr = new Producto(nombre, cantidad, precio);
-				pr.añadeProducto(nombre, cantidad, precio); //añado el producto a la linked list
+				lista.add(pr); //añado el producto a la linked list
 				
 				
 				System.out.println("Se añadio correctamente el siguiente producto: ");
@@ -85,15 +87,24 @@ public class Main {
 			case "2":
 				System.out.println("*************************************");
 				System.out.println("LISTA DE PRODUCTOS:");
-				pr.listadoProductos();
+			    for(Producto pro : lista){
+			    	System.out.println(pr);
+			    }
+				
 				
 				break;
 				
 			case "3":
 				System.out.println("Elige el producto que quieras eliminar (escribe SOLO el codigo");
-				pr.listadoProductos();
+				for(Producto pro : lista){
+			    	System.out.println(pr);
+			    }
 				int codigo = sc.nextInt();
-				pr.eliminaContacto(codigo);
+				for (Producto pro : lista) {
+		            if (pr.getCodigo() == (codigo)) {
+		                lista.remove(pr);
+		            }
+		        }
 				System.out.println("El producto con el codigo: " + codigo + " ha sido eliminado");
 				break;
 				
@@ -102,7 +113,7 @@ public class Main {
 				 System.out.println("Opción de guardado de listado");
                  try(FileWriter ficheroProductos = new FileWriter("./resources/listado.csv",false);
                      BufferedWriter escritor = new BufferedWriter(ficheroProductos)){
-                     escritor.write(stringToFile(pr));
+                 //    escritor.write(stringToFile(pr));
                      escritor.newLine();
                  }catch(IOException e){
                      System.out.println("Error al escribir el fichero de productos");
@@ -128,4 +139,12 @@ public class Main {
 		
 	}//nb
 
+	public static String stringToFile(LinkedList<Producto> productos){
+        String listado ="";
+        for(Producto p : productos){
+            listado += p.getCodigo() + "," + p.getNombre() + "," + p.getCantidad() + "," + p.getPrecio();
+        }
+        return listado;
+    }
+	
 }//nb
