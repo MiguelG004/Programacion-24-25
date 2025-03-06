@@ -9,6 +9,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.io.*;
 
+
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -40,29 +42,32 @@ public class Main {
 			switch(op) {
 			
 			case "1":
-				
-				System.out.println("Vamos a crear un libro: ");
-				System.out.println("Introduce el ISBN");
-				isbn = sc.nextLine();
-				System.out.println("Introduce el titulo del libro: ");
-				titulo = sc.nextLine();
-				System.out.print("Introduce el nombre del autor");
-				autor = sc.nextLine();
 				try {
+					System.out.println("Vamos a crear un libro: ");
+					System.out.println("Introduce el ISBN");
+					isbn = sc.nextLine();
+					System.out.println("Introduce el titulo del libro: ");
+					comprobarIsbn(isbn, lista);
+					titulo = sc.nextLine();
+					System.out.print("Introduce el nombre del autor");
+					autor = sc.nextLine();
             		System.out.print("Introduce la fecha de publicacion (dd/mm/yyyy)");
             		String fechaN = sc.nextLine();
             		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 	fechaPublicacion = LocalDate.parse(fechaN, formatter);
-        		}catch(DateTimeParseException e) { //excepcion al convertir la fecha de string a local date
+		
+					l = new Libro(isbn, titulo, autor, fechaPublicacion);
+					lista.add(l);
+	            	System.out.println("Libro creado correctamente:");
+	            	System.out.println(l.toString());
+					System.out.println("**********************************************************");
+				}catch(IsbnExistenteException e) {
+					System.out.println("Error, el ISBN ya existe");
+        			System.out.println("******************************************");
+				}catch(DateTimeParseException e) { //excepcion al convertir la fecha de string a local date
         			System.out.println("Hubo un error, formato de fecha incorrecto");
         			System.out.println("******************************************");
         		}
-		
-				l = new Libro(isbn, titulo, autor, fechaPublicacion);
-				lista.add(l);
-            	System.out.println("Libro creado correctamente:");
-            	System.out.println(l.toString());
-				System.out.println("**********************************************************");
 				
 				break;
 				
@@ -124,6 +129,14 @@ public class Main {
 	private static boolean validarISBN(String isbn){
         //valida cualquier letra de la A a la Z, solo pueden ponerse 2 letras, despues buscas dos numeros, y por ultimo combinacion letras y numeros hasta 20
 		return isbn.matches("[A-Z]{1}[0-9]{8}");
+    }
+	
+	public static void comprobarIsbn(String isbn, LinkedList<Libro> lista) throws IsbnExistenteException{
+        for(Libro lib : lista){
+            if(lib.getIsbn().equals(isbn)){
+                throw new IsbnExistenteException();
+            }
+        }
     }
 	
 }
