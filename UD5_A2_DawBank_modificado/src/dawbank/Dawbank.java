@@ -20,7 +20,6 @@ public class Dawbank {
 			if(!validarIban(iban)){
 				System.out.println("Iban no valido, por favor, introduce un correcto");
 			}
-			
 		}while(!validarIban(iban));
 		
 		 System.out.println("Ingresa nombre del titular:");

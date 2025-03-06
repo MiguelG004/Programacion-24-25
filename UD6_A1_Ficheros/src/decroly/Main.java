@@ -123,7 +123,7 @@ public class Main {
 				break;
 				
 			case "5":
-				System.out.println("Saliendo del programa");
+				System.out.println("Saliendo del programa...");
 				break;
 				
 			default:
@@ -132,7 +132,7 @@ public class Main {
 			
 			}
 			
-		}while(!op.equals(5));
+		}while(!op.equals("5"));
 		
 		
 		

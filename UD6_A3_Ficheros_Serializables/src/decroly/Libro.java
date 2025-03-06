@@ -1,6 +1,7 @@
 package decroly;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.util.Iterator;
 import java.io.Serializable;
 public class Libro implements Serializable{
 	
@@ -38,8 +39,6 @@ public class Libro implements Serializable{
 		return "Libro [isbn=" + isbn + ", titulo=" + titulo + ", autor=" + autor + ", fechaPublicacion="
 				+ fechaPublicacion + "]";
 	}
-
-	
 	
 
 }

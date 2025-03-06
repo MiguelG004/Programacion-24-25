@@ -18,6 +18,14 @@ public class Videojuego extends Articulo{
 		this.fechaAlquiler = LocalDateTime.now();
 		this.isAlquilada = isAlquilada;
 	}
+	
+	//otro constructor para usar en el main con los datos que usaré
+		public Videojuego(String titulo, GeneroJuego generoJuego) {
+			super(titulo);
+			this.generoJuego = generoJuego;
+			this.fechaAlquiler = LocalDateTime.now();
+			this.isAlquilada = isAlquilada;
+		}
 
 	public GeneroJuego getGeneroJuego() {
 		return generoJuego;
@@ -35,10 +43,17 @@ public class Videojuego extends Articulo{
 		return formatter;
 	}
 
+	public void setFechaAlquiler(LocalDateTime fechaAlquiler) {
+		this.fechaAlquiler = fechaAlquiler;
+	}
+
+	public void setIsAlquilada(boolean isAlquilada) {
+		this.isAlquilada = isAlquilada;
+	}
+
 	@Override
 	public String toString() {
-		return "Videojuego [generoJuego=" + generoJuego + ", fechaAlquiler=" + fechaAlquiler + ", isAlquilada="
-				+ isAlquilada + ", formatter=" + formatter + "]";
+		return super.toString() + "tipo de articulo = videojuego, generoJuego=" + generoJuego + "]";
 	}
 	
 	

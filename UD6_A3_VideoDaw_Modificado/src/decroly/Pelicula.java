@@ -44,15 +44,19 @@ public class Pelicula extends Articulo {
 	public DateTimeFormatter getFormatter() {
 		return formatter;
 	}
+	
 
-
+	public void setFechaAlquiler(LocalDateTime fechaAlquiler) {
+		this.fechaAlquiler = fechaAlquiler;
+	}
+	public void setIsAlquilada(boolean isAlquilada) {
+		this.isAlquilada = isAlquilada;
+	}
 	@Override
 	public String toString() {
-		return "Pelicula [generoPeli=" + generoPeli + ", fechaAlquiler=" + fechaAlquiler + ", isAlquilada="
-				+ isAlquilada + "]";
+		return super.toString() + ", tipo de articulo = pelicula, genero de pelicula = " + generoPeli + "]";
 	}
 	
-	
-	
+
 	
 }

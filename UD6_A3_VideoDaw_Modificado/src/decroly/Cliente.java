@@ -16,15 +16,21 @@ public class Cliente extends Persona{
 		this.numSocio = this.contador;
 		this.contador++;
 		this.fechaBaja = fechaBaja;
-		this.listaAlquilados = listaAlquilados;
+		this.listaAlquilados = new LinkedList<>();
 	}
 
+	
 	public int getNumSocio() {
 		return numSocio;
 	}
 
 	public LocalDate getFechaBaja() {
 		return fechaBaja;
+	}
+
+	
+	public void setFechaBaja(LocalDate fechaBaja) {
+		this.fechaBaja = fechaBaja;
 	}
 
 	public LinkedList<Articulo> getListaAlquilados() {
@@ -37,27 +43,26 @@ public class Cliente extends Persona{
 
 	@Override
 	public String toString() {
-		return super.toString() + ", numSocio = " + numSocio  + ", articulosAlquilados = "
-				+ listaAlquilados + "]";
+		return "Persona [numSocio = " + numSocio + super.toString() +  ", articulos Alquilados = " + listaAlquilados + "]";
 	}
 	
 	
 	
-	 public void agregarArticuloAlquilado(Articulo articulo) {
-		 listaAlquilados.add(articulo);
+	 public void añadirArticuloAlquilado(Articulo a) {
+		 this.listaAlquilados.add(a);
 	    }
 
-	    public void eliminarArticuloAlquilado(Articulo articulo) {
-	    	listaAlquilados.remove(articulo);
-	    }
+	  public void eliminarArticuloAlquilado(Articulo a) {
+	    this.listaAlquilados.remove(a);
+	   }
 
-	    public String mostrarArticulosAlquilados(){
+	   public String mostrarArticulosAlquilados(){
 	        Iterator <Articulo> itera = listaAlquilados.iterator();
-	        Articulo cadaArticulo = null;
+	        Articulo art = null;
 	        while (itera.hasNext()){
-	            cadaArticulo = itera.next();
+	            art = itera.next();
 	        }
-	        return cadaArticulo.toString();
+	        return art.toString();
 	    }
 	
 	
