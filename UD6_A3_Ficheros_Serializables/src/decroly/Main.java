@@ -46,8 +46,8 @@ public class Main {
 					System.out.println("Vamos a crear un libro: ");
 					System.out.println("Introduce el ISBN");
 					isbn = sc.nextLine();
-					System.out.println("Introduce el titulo del libro: ");
 					comprobarIsbn(isbn, lista);
+					System.out.println("Introduce el titulo del libro: ");
 					titulo = sc.nextLine();
 					System.out.print("Introduce el nombre del autor");
 					autor = sc.nextLine();
